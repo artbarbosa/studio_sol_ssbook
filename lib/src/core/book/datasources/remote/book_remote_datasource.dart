@@ -2,7 +2,7 @@ import 'package:graphql/client.dart';
 import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_service.dart';
 
 import '../../../shared/consts/api_const.dart';
-import '../../../shared/failures/failures.dart';
+import '../../failures/book_failures.dart';
 
 abstract class IBookRemoteDataSource {
   Future<Map<dynamic, String>> getAllBooks();
@@ -16,15 +16,15 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   BookRemoteDataSource({
     required this.client,
   });
-  query() async {
-    final client = GraphQLClient(
-      link: HttpLink(ApiConst.apiUrl),
-      cache: GraphQLCache(),
-    );
-    final QueryResult result = await client
-        .query(QueryOptions(document: gql(ApiConst.queryFavoriteBooks)));
-    return result;
-  }
+  // query() async {
+  //   final client = GraphQLClient(
+  //     link: HttpLink(ApiConst.apiUrl),
+  //     cache: GraphQLCache(),
+  //   );
+  //   final QueryResult result = await client
+  //       .query(QueryOptions(document: gql(ApiConst.queryFavoriteBooks)));
+  //   return result;
+  // }
 
   @override
   Future<Map<dynamic, String>> getAllBooks() async {
@@ -33,8 +33,11 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
           .query(QueryOptions(document: gql(ApiConst.queryAllBooks)));
 
       return result.data as Map<dynamic, String>;
-    } on GraphqlHttpClientError catch (error, stackTrace) {
-      throw Exception();
+    } catch (error, stackTrace) {
+      throw BookRemoteDataSourceError(
+        errorMessage: error.toString(),
+        stackTrace: stackTrace,
+      );
     }
   }
 
@@ -45,8 +48,11 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
           .query(QueryOptions(document: gql(ApiConst.queryBookById(id))));
 
       return result.data as Map<dynamic, String>;
-    } on GraphqlHttpClientError {
-      rethrow;
+    } catch (error, stackTrace) {
+      throw BookRemoteDataSourceError(
+        errorMessage: error.toString(),
+        stackTrace: stackTrace,
+      );
     }
   }
 
@@ -57,8 +63,11 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
           .query(QueryOptions(document: gql(ApiConst.queryFavoriteBooks)));
 
       return result.data as Map<dynamic, String>;
-    } on GraphqlHttpClientError catch (error, stackTrace) {
-      throw Exception();
+    } catch (error, stackTrace) {
+      throw BookRemoteDataSourceError(
+        errorMessage: error.toString(),
+        stackTrace: stackTrace,
+      );
     }
   }
 }
