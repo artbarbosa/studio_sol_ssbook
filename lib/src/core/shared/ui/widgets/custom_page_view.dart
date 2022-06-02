@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../modules/home/router/home_router.dart';
 import '../controllers/custom_bottom_navigation_bar_controller.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -21,6 +22,7 @@ class _CustomPageViewState extends State<CustomPageView> {
       physics: const ScrollPhysics(),
       controller: widget.controller.pageController,
       children: [
+        const HomeRouter(),
         Container(),
         Container(),
         Container(),

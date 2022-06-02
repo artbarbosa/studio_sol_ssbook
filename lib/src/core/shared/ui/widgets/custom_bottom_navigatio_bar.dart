@@ -37,23 +37,30 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             widget.controller.isVisible.value ? kBottomNavigationBarHeight : 0,
         child: Wrap(
           children: [
-            NavigationBar(
-              selectedIndex: widget.controller.selectedIndex,
-              onDestinationSelected: (value) {
+            BottomNavigationBar(
+              selectedItemColor: Colors.pink,
+              unselectedItemColor: Colors.grey,
+              elevation: 100,
+              currentIndex: widget.controller.selectedIndex,
+              onTap: (value) {
                 widget.controller.changePage(value);
               },
-              destinations: const [
-                NavigationDestination(
-                  label: 'Home',
+              items: const [
+                BottomNavigationBarItem(
+                  label: 'Início',
                   icon: Icon(Icons.home),
                 ),
-                NavigationDestination(
-                  label: 'Cart',
-                  icon: Icon(Icons.shopping_cart),
+                BottomNavigationBarItem(
+                  label: 'Adicionar',
+                  icon: Icon(Icons.add_circle),
                 ),
-                NavigationDestination(
-                  label: 'Settings',
-                  icon: Icon(Icons.settings),
+                BottomNavigationBarItem(
+                  label: 'Buscar',
+                  icon: Icon(Icons.search),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Favoritos',
+                  icon: Icon(Icons.favorite),
                 )
               ],
             )
