@@ -44,7 +44,7 @@ class _HomeContainerPageState extends State<HomeContainerPage> {
           },
           body: TabBarView(
             children: [
-              MyBooksPage(),
+              const MyBooksPage(),
               const Center(
                 child: Text('Emprestados'),
               ),

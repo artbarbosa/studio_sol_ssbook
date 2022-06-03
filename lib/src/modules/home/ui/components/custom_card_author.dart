@@ -10,48 +10,35 @@ class CustomCardAuthor extends StatelessWidget {
   final AuthorModel author;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 10,
-      ),
-      child: Container(
-        height: MediaQuery.of(context).size.height / 10,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-          border: Border.all(
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.9,
+      child: Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 0,
+        shape: const RoundedRectangleBorder(
+          side: BorderSide(
             color: AppColorsConst.divider,
           ),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
         child: Row(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                author.picture!,
-              ),
+              child: Image.network(author.picture!),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width / 10,
-              ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(author.name, style: AppTextStylesConst.titleHome),
-                  if (author.bookCount == 1)
-                    Text(
-                      '${author.bookCount} livro',
-                      style: AppTextStylesConst.subtitleBookHome,
-                    )
-                  else
-                    Text(
-                      '${author.bookCount} livros',
-                      style: AppTextStylesConst.subtitleBookHome,
-                    )
+                  Text(author.name, style: AppTextStylesConst.titleBookHome),
+                  Text(author.bookCount.toString(),
+                      style: AppTextStylesConst.subtitleBookHome),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
