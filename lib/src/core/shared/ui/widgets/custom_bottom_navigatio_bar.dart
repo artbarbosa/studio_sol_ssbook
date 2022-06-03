@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studio_sol_ssbook/src/core/shared/consts/app_colors_const.dart';
 
 import '../controllers/custom_bottom_navigation_bar_controller.dart';
 
@@ -38,13 +39,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         child: Wrap(
           children: [
             BottomNavigationBar(
-              selectedItemColor: Colors.pink,
-              unselectedItemColor: Colors.grey,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: AppColorsConst.onPrimary,
+              selectedItemColor: AppColorsConst.primary,
+              unselectedItemColor: AppColorsConst.secondary,
               elevation: 100,
               currentIndex: widget.controller.selectedIndex,
-              onTap: (value) {
-                widget.controller.changePage(value);
-              },
+              onTap: (value) => widget.controller.changePage(value),
               items: const [
                 BottomNavigationBarItem(
                   label: 'Início',

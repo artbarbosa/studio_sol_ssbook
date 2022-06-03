@@ -9,6 +9,7 @@ class CustomAppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(32),

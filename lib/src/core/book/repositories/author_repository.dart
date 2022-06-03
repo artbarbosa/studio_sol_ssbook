@@ -9,13 +9,13 @@ abstract class IAuthorRepository {
 class AuthorRepository implements IAuthorRepository {
   final IAuthorRemoteDataSource datasource;
 
-  AuthorRepository(this.datasource);
+  AuthorRepository({required this.datasource});
 
   @override
   Future<List<AuthorModel>> getFavoriteAuthorsBooks() async {
     try {
       final result = await datasource.getfavoriteAuthors();
-      final list = result['favoriteBooks'] as List;
+      final list = result['favoriteAuthors'] as List;
       return list.map((e) => AuthorModel.fromMap(e)).toList();
     } catch (error, stackTrace) {
       throw AuthorRepositoryError(

@@ -21,11 +21,11 @@ class _CustomPageViewState extends State<CustomPageView> {
     return PageView(
       physics: const ScrollPhysics(),
       controller: widget.controller.pageController,
-      children: [
-        const HomeRouter(),
-        Container(),
-        Container(),
-        Container(),
+      children: const [
+        HomeRouter(),
+        Center(child: Text('Adicionar')),
+        Center(child: Text('Buscar')),
+        Center(child: Text('Favoritos')),
       ],
     );
   }

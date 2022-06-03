@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'author_model.dart';
 
 class BookModel {
-  final int id;
+  final String id;
   final String? name;
   final AuthorModel? author;
   final String cover;
@@ -17,7 +17,7 @@ class BookModel {
   });
 
   BookModel copyWith({
-    int? id,
+    String? id,
     String? name,
     AuthorModel? author,
     String? cover,
@@ -52,7 +52,7 @@ class BookModel {
 
   factory BookModel.fromMap(Map<String, dynamic> map) {
     return BookModel(
-      id: map['id']?.toInt() ?? 0,
+      id: map['id'] ?? '',
       name: map['name'],
       author: map['author'] != null ? AuthorModel.fromMap(map['author']) : null,
       cover: map['cover'] ?? '',

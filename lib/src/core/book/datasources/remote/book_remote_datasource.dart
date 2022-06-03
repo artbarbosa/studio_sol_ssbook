@@ -5,9 +5,9 @@ import '../../../shared/services/remote/http_client_service.dart';
 import '../../failures/book_failures.dart';
 
 abstract class IBookRemoteDataSource {
-  Future<Map<dynamic, String>> getAllBooks();
-  Future<Map<dynamic, String>> getFavoriteBooks();
-  Future<Map<dynamic, String>> getBookById(int id);
+  Future<Map<String, dynamic>> getAllBooks();
+  Future<Map<String, dynamic>> getFavoriteBooks();
+  Future<Map<String, dynamic>> getBookById(int id);
 }
 
 class BookRemoteDataSource implements IBookRemoteDataSource {
@@ -18,12 +18,12 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   });
 
   @override
-  Future<Map<dynamic, String>> getAllBooks() async {
+  Future<Map<String, dynamic>> getAllBooks() async {
     try {
       final QueryResult result = await client
           .query(QueryOptions(document: gql(ApiConst.queryAllBooks)));
 
-      return result.data as Map<dynamic, String>;
+      return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
       throw BookRemoteDataSourceError(
         errorMessage: error.toString(),
@@ -33,12 +33,12 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   }
 
   @override
-  Future<Map<dynamic, String>> getBookById(int id) async {
+  Future<Map<String, dynamic>> getBookById(int id) async {
     try {
       final QueryResult result = await client
           .query(QueryOptions(document: gql(ApiConst.queryBookById(id))));
 
-      return result.data as Map<dynamic, String>;
+      return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
       throw BookRemoteDataSourceError(
         errorMessage: error.toString(),
@@ -48,12 +48,12 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   }
 
   @override
-  Future<Map<dynamic, String>> getFavoriteBooks() async {
+  Future<Map<String, dynamic>> getFavoriteBooks() async {
     try {
       final QueryResult result = await client
           .query(QueryOptions(document: gql(ApiConst.queryFavoriteBooks)));
 
-      return result.data as Map<dynamic, String>;
+      return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
       throw BookRemoteDataSourceError(
         errorMessage: error.toString(),

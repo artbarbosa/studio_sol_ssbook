@@ -5,7 +5,7 @@ import '../../../shared/services/remote/http_client_service.dart';
 import '../../failures/author_failures.dart';
 
 abstract class IAuthorRemoteDataSource {
-  Future<Map<dynamic, String>> getfavoriteAuthors();
+  Future<Map<String, dynamic>> getfavoriteAuthors();
 }
 
 class AuthorRemoteDataSource implements IAuthorRemoteDataSource {
@@ -15,12 +15,12 @@ class AuthorRemoteDataSource implements IAuthorRemoteDataSource {
   });
 
   @override
-  Future<Map<dynamic, String>> getfavoriteAuthors() async {
+  Future<Map<String, dynamic>> getfavoriteAuthors() async {
     try {
       final QueryResult result = await client
           .query(QueryOptions(document: gql(ApiConst.queryFavoriteAuthors)));
 
-      return result.data as Map<dynamic, String>;
+      return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
       throw AuthorRemoteDataSourceError(
         errorMessage: error.toString(),

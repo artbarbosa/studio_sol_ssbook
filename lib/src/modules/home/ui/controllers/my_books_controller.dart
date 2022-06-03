@@ -7,8 +7,8 @@ import '../../../../core/book/model/book_model.dart';
 import '../states/my_books_page_states.dart';
 
 class MyBooksController extends ValueNotifier<MyBooksPageState> {
-  final BookRepository bookRepository;
-  final AuthorRepository authorRepository;
+  final IBookRepository bookRepository;
+  final IAuthorRepository authorRepository;
 
   MyBooksController(
     this.bookRepository,

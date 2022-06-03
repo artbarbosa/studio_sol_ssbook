@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:studio_sol_ssbook/src/core/shared/consts/app_colors_const.dart';
+
+class AppTextStylesConst {
+  static final titleHome = GoogleFonts.roboto(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: AppColorsConst.headingTitle,
+  );
+  static final secondaryHome = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: AppColorsConst.primary,
+  );
+
+  static final headingAppBar = GoogleFonts.lexendDeca(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: AppColorsConst.headingTitle,
+  );
+
+  static final titleBookHome = GoogleFonts.lexendDeca(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: AppColorsConst.headingTitle,
+  );
+
+  static final subtitleBookHome = GoogleFonts.lexendDeca(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColorsConst.secondary,
+  );
+
+  static final categoryBookHome = GoogleFonts.lexendDeca(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColorsConst.onPrimary,
+  );
+  static final categoryBookHomeSelected = GoogleFonts.lexendDeca(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColorsConst.subtitle,
+  );
+}

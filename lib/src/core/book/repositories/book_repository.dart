@@ -6,7 +6,7 @@ import '../model/book_model.dart';
 abstract class IBookRepository {
   Future<List<BookModel>> getFavoriteBooks();
   Future<List<BookModel>> getAllBooks();
-  Future<BookModel> getBookById();
+  Future<BookModel> getBookById(int id);
 }
 
 class BookRepository implements IBookRepository {
@@ -33,7 +33,7 @@ class BookRepository implements IBookRepository {
   @override
   Future<List<BookModel>> getFavoriteBooks() async {
     try {
-      final result = await datasource.getAllBooks();
+      final result = await datasource.getFavoriteBooks();
       final list = result['favoriteBooks'] as List;
       return list.map((e) => BookModel.fromMap(e)).toList();
     } catch (error, stackTrace) {
@@ -45,9 +45,9 @@ class BookRepository implements IBookRepository {
   }
 
   @override
-  Future<BookModel> getBookById() async {
+  Future<BookModel> getBookById(int id) async {
     try {
-      final result = await datasource.getAllBooks();
+      final result = await datasource.getBookById(id);
       final map = result['book'] as Map<String, dynamic>;
       return BookModel.fromMap(map);
     } catch (error, stackTrace) {

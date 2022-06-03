@@ -5,6 +5,7 @@ class ApiConst {
   static const queryFavoriteBooks = r"""
     query FavoriteBooks {
       favoriteBooks {
+        id
         name 
         author {
           name
@@ -16,7 +17,8 @@ class ApiConst {
   static const queryAllBooks = r"""
     query AllBooks {
       allBooks{
-  	    name
+  	    id
+        name
         cover
         author{
           name
@@ -27,6 +29,7 @@ class ApiConst {
   static const queryFavoriteAuthors = r"""
     query FavoriteAuthors  {
       favoriteAuthors{
+        id
         name
         booksCount
         picture   

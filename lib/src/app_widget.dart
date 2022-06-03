@@ -8,11 +8,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: const Color(0xFFA076F2),
-        backgroundColor: const Color(0xFFF2F2F2),
-        bottomAppBarColor: Colors.white,
-      ),
+      debugShowCheckedModeBanner: false,
       initialRoute: Routers.initialRoute,
       onGenerateRoute: Routers.generateRoutes,
     );
