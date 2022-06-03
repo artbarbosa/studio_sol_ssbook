@@ -14,32 +14,32 @@ class AppTextStylesConst {
     color: AppColorsConst.primary,
   );
 
-  static final headingAppBar = GoogleFonts.lexendDeca(
+  static final headingAppBar = GoogleFonts.roboto(
     fontSize: 14,
     fontWeight: FontWeight.w700,
     color: AppColorsConst.headingTitle,
   );
 
-  static final titleBookHome = GoogleFonts.lexendDeca(
+  static final titleBookHome = GoogleFonts.roboto(
     fontSize: 16,
     fontWeight: FontWeight.w700,
     color: AppColorsConst.headingTitle,
   );
 
-  static final subtitleBookHome = GoogleFonts.lexendDeca(
+  static final subtitleBookHome = GoogleFonts.roboto(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColorsConst.secondary,
   );
 
-  static final categoryBookHome = GoogleFonts.lexendDeca(
-    fontSize: 14,
-    fontWeight: FontWeight.w500,
-    color: AppColorsConst.onPrimary,
-  );
-  static final categoryBookHomeSelected = GoogleFonts.lexendDeca(
+  static final categoryBookHome = GoogleFonts.roboto(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: AppColorsConst.subtitle,
+  );
+  static final categoryBookHomeSelected = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColorsConst.onPrimary,
   );
 }

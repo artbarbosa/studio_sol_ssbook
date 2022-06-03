@@ -47,7 +47,7 @@ class AuthorModel {
     return AuthorModel(
       name: map['name'] ?? '',
       id: map['id'],
-      bookCount: map['bookCount']?.toInt(),
+      bookCount: map['bookCount'],
       picture: map['picture'],
     );
   }

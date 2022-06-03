@@ -7,6 +7,7 @@ import '../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_cont
 import '../components/custom_list_card_book_component.dart';
 import '../controllers/my_books_controller.dart';
 import '../states/my_books_page_states.dart';
+import '../widgets/custom_chip_category.dart';
 
 class MyBooksPage extends StatefulWidget {
   const MyBooksPage({Key? key}) : super(key: key);
@@ -38,7 +39,6 @@ class _MyBooksPageState extends State<MyBooksPage> {
       builder: (context, value, _) {
         if (value is MyBooksLoadedState) {
           return SingleChildScrollView(
-            physics: const NeverScrollableScrollPhysics(),
             controller: controllerBottomNavigation.scrollController,
             child: Column(
               children: [
@@ -71,7 +71,6 @@ class _MyBooksPageState extends State<MyBooksPage> {
                 ),
                 //Container Branco
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.5,
                   width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -95,8 +94,7 @@ class _MyBooksPageState extends State<MyBooksPage> {
                         ),
                       ),
                       //Lista de Autores
-                      Container(
-                        color: Colors.amber,
+                      SizedBox(
                         height: MediaQuery.of(context).size.height * 0.15,
                         child: ListView.builder(
                           padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -110,6 +108,51 @@ class _MyBooksPageState extends State<MyBooksPage> {
                           },
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, top: 30, bottom: 21),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('Blioteca',
+                                style: AppTextStylesConst.titleHome),
+                          ],
+                        ),
+                      ),
+                      // Biblioteca
+                      Container(
+                        color: Colors.red,
+                        width: MediaQuery.of(context).size.width,
+                        height: 500,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            //List categorias
+                            SizedBox(
+                              height: 30,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                                children: const [
+                                  SizedBox(width: 20),
+                                  CustomChipCategory(
+                                      isSelected: true, label: 'Todos'),
+                                  SizedBox(width: 10),
+                                  CustomChipCategory(
+                                      isSelected: false, label: 'Romance'),
+                                  SizedBox(width: 10),
+                                  CustomChipCategory(
+                                      isSelected: false, label: 'Aventura'),
+                                  SizedBox(width: 10),
+                                  CustomChipCategory(
+                                      isSelected: false, label: 'Comédia'),
+                                  SizedBox(width: 20),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
