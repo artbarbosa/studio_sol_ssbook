@@ -10,24 +10,34 @@ void main() {
   late GraphqlHttpClientServiceImp client;
   late GraphQLClientMock graphQLClient;
 
+  final queryOptions = QueryOptions(
+    document: gql(''),
+  );
+
   setUpAll(() {
     graphQLClient = GraphQLClientMock();
     client = GraphqlHttpClientServiceImp(graphQLClient);
   });
 
-  test('Should return QueryResult', () async {
-    when(() => graphQLClient.query(any()))
-        .thenAnswer((_) async => QueryResultMock());
+  group('GraphqlHttpClientServiceImp - query', () {
+    test('Should return QueryResult', () async {
+      when(() => graphQLClient.query(queryOptions))
+          .thenAnswer((_) async => QueryResultMock());
 
-    final result = await client.query(QueryOptionsMock());
+      final result = await client.query(queryOptions);
+      QueryOptions(
+        document: gql(''),
+      );
 
-    expect(result, isA<QueryOptions>());
-  });
+      expect(result, isA<QueryResultMock>());
+    });
 
-  test('Should throw  GraphqlHttpClientError', () async {
-    when(() => graphQLClient.query(any())).thenThrow(ExceptionMock());
+    test('Should throw  GraphqlHttpClientError', () async {
+      when(() => graphQLClient.query(QueryOptionsMock()))
+          .thenThrow(ExceptionMock());
 
-    expect(() async => await client.query(QueryOptionsMock()),
-        throwsA(isA<GraphqlHttpClientError>()));
+      expect(() async => await client.query(QueryOptionsMock()),
+          throwsA(isA<GraphqlHttpClientError>()));
+    });
   });
 }

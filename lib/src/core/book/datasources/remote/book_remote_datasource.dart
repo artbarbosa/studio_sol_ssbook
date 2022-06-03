@@ -1,7 +1,7 @@
 import 'package:graphql/client.dart';
-import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_service.dart';
 
 import '../../../shared/consts/api_const.dart';
+import '../../../shared/services/remote/http_client_service.dart';
 import '../../failures/book_failures.dart';
 
 abstract class IBookRemoteDataSource {
@@ -16,15 +16,6 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   BookRemoteDataSource({
     required this.client,
   });
-  // query() async {
-  //   final client = GraphQLClient(
-  //     link: HttpLink(ApiConst.apiUrl),
-  //     cache: GraphQLCache(),
-  //   );
-  //   final QueryResult result = await client
-  //       .query(QueryOptions(document: gql(ApiConst.queryFavoriteBooks)));
-  //   return result;
-  // }
 
   @override
   Future<Map<dynamic, String>> getAllBooks() async {

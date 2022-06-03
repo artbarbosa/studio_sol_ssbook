@@ -14,27 +14,6 @@ class AuthorRemoteDataSource implements IAuthorRemoteDataSource {
     required this.client,
   });
 
-//   query() async {
-//     String readRepositories = r"""
-// query AllFavoriteBooks {
-//   favoriteBooks {
-//     name
-//     author {
-//       name
-//     }
-//     cover
-//   }
-// }""";
-//     final client = GraphQLClient(
-//       link:
-//           HttpLink('https://us-central1-ss-devops.cloudfunctions.net/GraphQL'),
-//       cache: GraphQLCache(),
-//     );
-//     var result =
-//         await client.query(QueryOptions(document: gql(readRepositories)));
-//     return result.data;
-//   }
-
   @override
   Future<Map<dynamic, String>> getfavoriteAuthors() async {
     try {

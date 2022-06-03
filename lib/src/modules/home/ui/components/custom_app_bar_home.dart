@@ -9,6 +9,11 @@ class CustomAppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(32),
+        ),
+      ),
       title: Image.asset('assets/images/logo_ssbook.png'),
       pinned: true,
       floating: true,
