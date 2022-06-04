@@ -13,50 +13,47 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Hero(
-        tag: book.id,
-        child: GestureDetector(
-          onTap: () {
-            Navigator.of(context)
-                .pushNamed('/detail', arguments: DetailArguments(id: book.id));
-          },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: AspectRatio(
-                    aspectRatio: 136 / 198,
-                    child: Image.network(
-                      book.cover,
-                      fit: BoxFit.fill,
-                    ),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed('/detail', arguments: DetailArguments(id: book.id));
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: AspectRatio(
+                  aspectRatio: 136 / 198,
+                  child: Image.network(
+                    book.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 2, top: 10),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text.rich(
-                    softWrap: false,
-                    TextSpan(
-                      text: book.name,
-                      style: AppTextStylesConst.titleBookHome,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 2, top: 10),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Text.rich(
+                  softWrap: false,
+                  TextSpan(
+                    text: book.name,
+                    style: AppTextStylesConst.titleBookHome,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
               ),
-              Text(
-                book.author!.name,
-                style: AppTextStylesConst.subtitleBookHome,
-              ),
-            ],
-          ),
+            ),
+            Text(
+              book.author!.name,
+              style: AppTextStylesConst.subtitleBookHome,
+            ),
+          ],
         ),
       ),
     );

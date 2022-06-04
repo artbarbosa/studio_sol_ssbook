@@ -42,4 +42,10 @@ class AppTextStylesConst {
     fontWeight: FontWeight.w500,
     color: AppColorsConst.onPrimary,
   );
+
+  static final descriptionBookDetail = GoogleFonts.roboto(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColorsConst.onPrimary,
+  );
 }

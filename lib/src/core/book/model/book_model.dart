@@ -4,16 +4,18 @@ import 'author_model.dart';
 
 class BookModel {
   final String id;
+  final String cover;
   final String? name;
   final AuthorModel? author;
-  final String cover;
   final String? description;
+  final bool? isFavorite;
   BookModel({
     required this.id,
     this.name,
     this.author,
     required this.cover,
     this.description,
+    this.isFavorite,
   });
 
   BookModel copyWith({
@@ -22,6 +24,7 @@ class BookModel {
     AuthorModel? author,
     String? cover,
     String? description,
+    bool? isFavorite,
   }) {
     return BookModel(
       id: id ?? this.id,
@@ -29,6 +32,7 @@ class BookModel {
       author: author ?? this.author,
       cover: cover ?? this.cover,
       description: description ?? this.description,
+      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 
@@ -46,6 +50,9 @@ class BookModel {
     if (description != null) {
       result.addAll({'description': description});
     }
+    if (isFavorite != null) {
+      result.addAll({'isFavorite': isFavorite});
+    }
 
     return result;
   }
@@ -57,6 +64,7 @@ class BookModel {
       author: map['author'] != null ? AuthorModel.fromMap(map['author']) : null,
       cover: map['cover'] ?? '',
       description: map['description'],
+      isFavorite: map['isFavorite'],
     );
   }
 
@@ -67,7 +75,7 @@ class BookModel {
 
   @override
   String toString() {
-    return 'BookModel(id: $id, name: $name, author: $author, cover: $cover, description: $description)';
+    return 'BookModel(id: $id, name: $name, author: $author, cover: $cover, description: $description, isFavorite: $isFavorite)';
   }
 
   @override
@@ -79,7 +87,8 @@ class BookModel {
         other.name == name &&
         other.author == author &&
         other.cover == cover &&
-        other.description == description;
+        other.description == description &&
+        other.isFavorite == isFavorite;
   }
 
   @override
@@ -88,6 +97,7 @@ class BookModel {
         name.hashCode ^
         author.hashCode ^
         cover.hashCode ^
-        description.hashCode;
+        description.hashCode ^
+        isFavorite.hashCode;
   }
 }

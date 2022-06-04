@@ -36,14 +36,16 @@ class ApiConst {
       }
     }""";
 
-  static String queryBookById(String id) => r"""
+  static String queryBookById(String id) => """
     query BookById {
-      book(id: 1){
+      book(id: $id){
+        cover
+        isFavorite
         name
+        description
         author{
           name
         }
-        description
       }
     }""";
 }
