@@ -7,7 +7,7 @@ import '../../failures/book_failures.dart';
 abstract class IBookRemoteDataSource {
   Future<Map<String, dynamic>> getAllBooks();
   Future<Map<String, dynamic>> getFavoriteBooks();
-  Future<Map<String, dynamic>> getBookById(int id);
+  Future<Map<String, dynamic>> getBookById(String id);
 }
 
 class BookRemoteDataSource implements IBookRemoteDataSource {
@@ -33,7 +33,7 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   }
 
   @override
-  Future<Map<String, dynamic>> getBookById(int id) async {
+  Future<Map<String, dynamic>> getBookById(String id) async {
     try {
       final QueryResult result = await client
           .query(QueryOptions(document: gql(ApiConst.queryBookById(id))));

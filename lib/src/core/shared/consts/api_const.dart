@@ -36,7 +36,7 @@ class ApiConst {
       }
     }""";
 
-  static String queryBookById(int id) => r"""
+  static String queryBookById(String id) => r"""
     query BookById {
       book(id: 1){
         name

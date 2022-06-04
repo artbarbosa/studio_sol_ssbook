@@ -66,7 +66,7 @@ class LibraryListComponent extends StatelessWidget {
                     itemCount: listAllBooks.length,
                     itemBuilder: (context, index) {
                       return CustomCardBookListVerticalWidget(
-                        listAllBooks: listAllBooks[index],
+                        book: listAllBooks[index],
                       );
                     },
                   ),

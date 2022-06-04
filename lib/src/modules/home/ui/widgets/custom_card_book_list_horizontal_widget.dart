@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:studio_sol_ssbook/src/core/book/model/book_model.dart';
 import 'package:studio_sol_ssbook/src/core/shared/consts/app_text_styles_const.dart';
 
+import '../../../detail/router/detail_arguments.dart';
+
 class CustomCardBookListHorizontalComponent extends StatelessWidget {
   final BookModel book;
   const CustomCardBookListHorizontalComponent({Key? key, required this.book})
@@ -14,7 +16,10 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
       child: Hero(
         tag: book.id,
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed('/detail', arguments: DetailArguments(id: book.id));
+          },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

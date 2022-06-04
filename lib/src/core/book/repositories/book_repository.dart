@@ -6,7 +6,7 @@ import '../model/book_model.dart';
 abstract class IBookRepository {
   Future<List<BookModel>> getFavoriteBooks();
   Future<List<BookModel>> getAllBooks();
-  Future<BookModel> getBookById(int id);
+  Future<BookModel> getBookById(String id);
 }
 
 class BookRepository implements IBookRepository {
@@ -45,7 +45,7 @@ class BookRepository implements IBookRepository {
   }
 
   @override
-  Future<BookModel> getBookById(int id) async {
+  Future<BookModel> getBookById(String id) async {
     try {
       final result = await datasource.getBookById(id);
       final map = result['book'] as Map<String, dynamic>;

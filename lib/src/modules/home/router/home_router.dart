@@ -9,18 +9,6 @@ class HomeRouter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Navigator(
-      initialRoute: '/home',
-      onGenerateRoute: (settings) {
-        if (settings.name == '/home') {
-          return MaterialPageRoute(
-            builder: (context) {
-              return const HomeContainerPage();
-            },
-          );
-        }
-        return null;
-      },
-    );
+    return const HomeContainerPage();
   }
 }

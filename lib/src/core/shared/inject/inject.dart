@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:graphql/client.dart';
 import 'package:studio_sol_ssbook/src/core/book/datasources/remote/author_remote_datasource.dart';
 
+import '../../../modules/detail/ui/controller/detail_controller.dart';
 import '../../../modules/home/ui/controllers/my_books_controller.dart';
 import '../../book/datasources/remote/book_remote_datasource.dart';
 import '../../book/repositories/author_repository.dart';
@@ -39,6 +40,10 @@ class Inject {
 
     getIt.registerLazySingleton<MyBooksController>(
       () => MyBooksController(getIt(), getIt()),
+    );
+
+    getIt.registerFactory<DetailController>(
+      () => DetailController(getIt()),
     );
 
     getIt.registerLazySingleton<CustomBottomNavigationBarController>(
