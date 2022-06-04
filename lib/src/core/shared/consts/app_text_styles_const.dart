@@ -46,6 +46,6 @@ class AppTextStylesConst {
   static final descriptionBookDetail = GoogleFonts.roboto(
     fontSize: 16,
     fontWeight: FontWeight.w400,
-    color: AppColorsConst.onPrimary,
+    color: AppColorsConst.headingTitle,
   );
 }
