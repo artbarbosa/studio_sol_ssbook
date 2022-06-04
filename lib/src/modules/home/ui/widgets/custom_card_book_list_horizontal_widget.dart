@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:studio_sol_ssbook/src/core/book/model/book_model.dart';
 import 'package:studio_sol_ssbook/src/core/shared/consts/app_text_styles_const.dart';
 
-class CustomListCardBookComponent extends StatelessWidget {
+class CustomCardBookListHorizontalComponent extends StatelessWidget {
   final BookModel book;
-  const CustomListCardBookComponent({Key? key, required this.book})
+  const CustomCardBookListHorizontalComponent({Key? key, required this.book})
       : super(key: key);
 
   @override

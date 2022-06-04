@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/shared/consts/app_colors_const.dart';
 import '../../../../core/shared/consts/app_text_styles_const.dart';
 
-class CustomChipCategory extends StatelessWidget {
-  const CustomChipCategory(
+class CustomChipCategoryWidget extends StatelessWidget {
+  const CustomChipCategoryWidget(
       {Key? key, required this.isSelected, required this.label})
       : super(key: key);
   final bool isSelected;

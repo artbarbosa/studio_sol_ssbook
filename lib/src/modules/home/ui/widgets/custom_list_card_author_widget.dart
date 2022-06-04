@@ -4,8 +4,9 @@ import 'package:studio_sol_ssbook/src/core/shared/consts/app_text_styles_const.d
 
 import '../../../../core/book/model/author_model.dart';
 
-class CustomCardAuthor extends StatelessWidget {
-  const CustomCardAuthor({Key? key, required this.author}) : super(key: key);
+class CustomCardAuthorWidget extends StatelessWidget {
+  const CustomCardAuthorWidget({Key? key, required this.author})
+      : super(key: key);
 
   final AuthorModel author;
   @override
@@ -34,7 +35,7 @@ class CustomCardAuthor extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(author.name, style: AppTextStylesConst.titleBookHome),
-                  Text(author.bookCount.toString(),
+                  Text('${author.booksCount.toString()} livros',
                       style: AppTextStylesConst.subtitleBookHome),
                 ],
               ),

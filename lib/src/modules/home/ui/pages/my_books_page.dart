@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:studio_sol_ssbook/src/modules/home/ui/components/custom_card_author.dart';
 
-import '../../../../core/shared/consts/app_text_styles_const.dart';
 import '../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
-import '../components/custom_list_card_book_component.dart';
+import '../components/library_list_component.dart';
+import '../components/list_favorite_authors_component.dart';
+import '../components/list_favorite_books_component.dart';
 import '../controllers/my_books_controller.dart';
 import '../states/my_books_page_states.dart';
-import '../widgets/custom_chip_category.dart';
 
 class MyBooksPage extends StatefulWidget {
   const MyBooksPage({Key? key}) : super(key: key);
@@ -39,36 +38,11 @@ class _MyBooksPageState extends State<MyBooksPage> {
       builder: (context, value, _) {
         if (value is MyBooksLoadedState) {
           return SingleChildScrollView(
-            controller: controllerBottomNavigation.scrollController,
             child: Column(
               children: [
                 // Meus Favoritos
-                Padding(
-                  padding: const EdgeInsets.only(
-                      right: 20, left: 20, top: 32, bottom: 21),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Meus Favoritos',
-                          style: AppTextStylesConst.titleHome),
-                      Text('ver todos',
-                          style: AppTextStylesConst.secondaryHome),
-                    ],
-                  ),
-                ),
-                // Lista de livros favoritos
-                SizedBox(
-                  height: 300,
-                  child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: value.listFavoriteBooks.length,
-                    itemBuilder: (_, idx) => CustomListCardBookComponent(
-                      book: value.listFavoriteBooks[idx],
-                    ),
-                  ),
-                ),
+                ListFavoriteBooksComponent(
+                    listFavoriteBooks: value.listFavoriteBooks),
                 //Container Branco
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -80,79 +54,11 @@ class _MyBooksPageState extends State<MyBooksPage> {
                   ),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            right: 20, left: 20, top: 32, bottom: 21),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Meus Favoritos',
-                                style: AppTextStylesConst.titleHome),
-                            Text('ver todos',
-                                style: AppTextStylesConst.secondaryHome),
-                          ],
-                        ),
-                      ),
-                      //Lista de Autores
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        child: ListView.builder(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: 20,
-                          itemBuilder: (context, index) {
-                            return CustomCardAuthor(
-                              author: value.listFavoriteAuthors[index],
-                            );
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 30, bottom: 21),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text('Blioteca',
-                                style: AppTextStylesConst.titleHome),
-                          ],
-                        ),
-                      ),
+                      ListFavoriteAuthorsComponent(
+                          listFavoriteAuthors: value.listFavoriteAuthors),
+
                       // Biblioteca
-                      Container(
-                        color: Colors.red,
-                        width: MediaQuery.of(context).size.width,
-                        height: 500,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //List categorias
-                            SizedBox(
-                              height: 30,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                shrinkWrap: true,
-                                children: const [
-                                  SizedBox(width: 20),
-                                  CustomChipCategory(
-                                      isSelected: true, label: 'Todos'),
-                                  SizedBox(width: 10),
-                                  CustomChipCategory(
-                                      isSelected: false, label: 'Romance'),
-                                  SizedBox(width: 10),
-                                  CustomChipCategory(
-                                      isSelected: false, label: 'Aventura'),
-                                  SizedBox(width: 10),
-                                  CustomChipCategory(
-                                      isSelected: false, label: 'Comédia'),
-                                  SizedBox(width: 20),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      )
+                      LibraryListComponent(listAllBooks: value.listAllBooks),
                     ],
                   ),
                 ),

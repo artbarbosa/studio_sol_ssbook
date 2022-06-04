@@ -3,12 +3,12 @@ import 'dart:convert';
 class AuthorModel {
   final String name;
   final String? id;
-  final int? bookCount;
+  final int? booksCount;
   final String? picture;
   AuthorModel({
     required this.name,
     required this.id,
-    this.bookCount,
+    this.booksCount,
     this.picture,
   });
 
@@ -21,7 +21,7 @@ class AuthorModel {
     return AuthorModel(
       name: name ?? this.name,
       id: id ?? this.id,
-      bookCount: bookCount ?? this.bookCount,
+      booksCount: booksCount ?? this.booksCount,
       picture: picture ?? this.picture,
     );
   }
@@ -33,8 +33,8 @@ class AuthorModel {
     if (id != null) {
       result.addAll({'id': id});
     }
-    if (bookCount != null) {
-      result.addAll({'bookCount': bookCount});
+    if (booksCount != null) {
+      result.addAll({'booksCount': booksCount});
     }
     if (picture != null) {
       result.addAll({'picture': picture});
@@ -47,7 +47,7 @@ class AuthorModel {
     return AuthorModel(
       name: map['name'] ?? '',
       id: map['id'],
-      bookCount: map['bookCount'],
+      booksCount: map['booksCount'],
       picture: map['picture'],
     );
   }
@@ -59,7 +59,7 @@ class AuthorModel {
 
   @override
   String toString() {
-    return 'AuthorModel(name: $name, id: $id, bookCount: $bookCount, picture: $picture)';
+    return 'AuthorModel(name: $name, id: $id, booksCount: $booksCount, picture: $picture)';
   }
 
   @override
@@ -69,12 +69,12 @@ class AuthorModel {
     return other is AuthorModel &&
         other.name == name &&
         other.id == id &&
-        other.bookCount == bookCount &&
+        other.booksCount == booksCount &&
         other.picture == picture;
   }
 
   @override
   int get hashCode {
-    return name.hashCode ^ id.hashCode ^ bookCount.hashCode ^ picture.hashCode;
+    return name.hashCode ^ id.hashCode ^ booksCount.hashCode ^ picture.hashCode;
   }
 }
