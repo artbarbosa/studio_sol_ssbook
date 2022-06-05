@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:studio_sol_ssbook/src/core/book/datasources/remote/book_remote_datasource.dart';
 import 'package:studio_sol_ssbook/src/core/book/failures/book_failures.dart';
+import 'package:studio_sol_ssbook/src/core/shared/failures/failures.dart';
 
 import '../../../../../mocks/mock.dart';
 
@@ -29,6 +30,13 @@ void main() {
       expect(() async => await datasource.getAllBooks(),
           throwsA(isA<BookRemoteDataSourceError>()));
     });
+    test('Should return GraphqlHttpClientError', () async {
+      when(() => httpClientMock.query(any()))
+          .thenThrow(GraphqlHttpClientError(errorMessage: ''));
+
+      expect(() async => await datasource.getAllBooks(),
+          throwsA(isA<GraphqlHttpClientError>()));
+    });
   });
   group('BookRemoteDataSource - getBookById', () {
     test('Should return Map', () async {
@@ -44,6 +52,13 @@ void main() {
 
       expect(() async => await datasource.getBookById(''),
           throwsA(isA<BookRemoteDataSourceError>()));
+    });
+    test('Should return GraphqlHttpClientError', () async {
+      when(() => httpClientMock.query(any()))
+          .thenThrow(GraphqlHttpClientError(errorMessage: ''));
+
+      expect(() async => await datasource.getBookById(''),
+          throwsA(isA<GraphqlHttpClientError>()));
     });
   });
 
@@ -61,6 +76,13 @@ void main() {
 
       expect(() async => await datasource.getFavoriteBooks(),
           throwsA(isA<BookRemoteDataSourceError>()));
+    });
+    test('Should return GraphqlHttpClientError', () async {
+      when(() => httpClientMock.query(any()))
+          .thenThrow(GraphqlHttpClientError(errorMessage: ''));
+
+      expect(() async => await datasource.getFavoriteBooks(),
+          throwsA(isA<GraphqlHttpClientError>()));
     });
   });
 }

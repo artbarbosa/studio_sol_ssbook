@@ -1,4 +1,5 @@
 import '../../../shared/consts/api_const.dart';
+import '../../../shared/failures/failures.dart';
 import '../../../shared/services/remote/http_client_service.dart';
 import '../../failures/book_failures.dart';
 
@@ -21,6 +22,8 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
       final result = await client.query(ApiConst.queryDocumentAllBooks);
 
       return result.data as Map<String, dynamic>;
+    } on GraphqlHttpClientError {
+      rethrow;
     } catch (error, stackTrace) {
       throw BookRemoteDataSourceError(
         errorMessage: error.toString(),
@@ -35,6 +38,8 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
       final result = await client.query(ApiConst.queryDocumentBookById(id));
 
       return result.data as Map<String, dynamic>;
+    } on GraphqlHttpClientError {
+      rethrow;
     } catch (error, stackTrace) {
       throw BookRemoteDataSourceError(
         errorMessage: error.toString(),
@@ -49,6 +54,8 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
       final result = await client.query(ApiConst.queryDocumentFavoriteBooks);
 
       return result.data as Map<String, dynamic>;
+    } on GraphqlHttpClientError {
+      rethrow;
     } catch (error, stackTrace) {
       throw BookRemoteDataSourceError(
         errorMessage: error.toString(),

@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:studio_sol_ssbook/src/core/book/datasources/remote/author_remote_datasource.dart';
 import 'package:studio_sol_ssbook/src/core/book/failures/author_failures.dart';
+import 'package:studio_sol_ssbook/src/core/shared/failures/failures.dart';
 
 import '../../../../../mocks/mock.dart';
 
@@ -28,6 +29,14 @@ void main() {
 
       expect(() async => await datasource.getfavoriteAuthors(),
           throwsA(isA<AuthorRemoteDataSourceError>()));
+    });
+
+    test('Should return GraphqlHttpClientError', () async {
+      when(() => httpClientMock.query(any()))
+          .thenThrow(GraphqlHttpClientError(errorMessage: ''));
+
+      expect(() async => await datasource.getfavoriteAuthors(),
+          throwsA(isA<GraphqlHttpClientError>()));
     });
   });
 }

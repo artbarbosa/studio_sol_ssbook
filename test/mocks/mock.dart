@@ -1,5 +1,7 @@
 import 'package:graphql/client.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:studio_sol_ssbook/src/core/book/datasources/remote/author_remote_datasource.dart';
+import 'package:studio_sol_ssbook/src/core/book/datasources/remote/book_remote_datasource.dart';
 import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_service.dart';
 
 class GraphQLClientMock extends Mock implements GraphQLClient {}
@@ -7,6 +9,11 @@ class GraphQLClientMock extends Mock implements GraphQLClient {}
 class ExceptionMock extends Mock implements Exception {}
 
 class IHttpClientServiceMock extends Mock implements IHttpClientService {}
+
+class IBookRemoteDataSourceMock extends Mock implements IBookRemoteDataSource {}
+
+class IAuthorRemoteDataSourceMock extends Mock
+    implements IAuthorRemoteDataSource {}
 
 final queryOptionsMock = QueryOptions(
   document: gql(''),
@@ -23,23 +30,20 @@ final QueryResult queryResultMock = QueryResult(
 );
 
 const Map<String, dynamic> mapGetAllBooks = {
-  "data": {
-    "allBooks": [
-      {
-        "name": "Clean Code: A Handbook of Agile Software Craftsmanship",
-        "cover":
-            "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-code.jpg",
-        "author": {"name": "Robert Cecil Martin"}
-      },
-      {
-        "name":
-            "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
-        "cover":
-            "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-architecture.jpg",
-        "author": {"name": "Robert Cecil Martin"}
-      },
-    ]
-  }
+  "allBooks": [
+    {
+      "name": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "cover": "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-code.jpg",
+      "author": {"name": "Robert Cecil Martin"}
+    },
+    {
+      "name":
+          "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
+      "cover":
+          "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-architecture.jpg",
+      "author": {"name": "Robert Cecil Martin"}
+    },
+  ]
 };
 const mapGetFavoriteAuthors = {
   "favoriteAuthors": [
@@ -62,4 +66,30 @@ const mapGetFavoriteAuthors = {
           "https://sscdn.co/gcs/studiosol/2022/mobile/author/afonso-padilha.jpg"
     }
   ]
+};
+const Map<String, dynamic> mapGetFavoriteBooks = {
+  "favoriteBooks": [
+    {
+      "name": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "cover": "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-code.jpg",
+      "author": {"name": "Robert Cecil Martin"}
+    },
+    {
+      "name":
+          "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
+      "cover":
+          "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-architecture.jpg",
+      "author": {"name": "Robert Cecil Martin"}
+    },
+  ]
+};
+
+const Map<String, dynamic> mapGetBookById = {
+  "book": {
+    "name": "Clean Code: A Handbook of Agile Software Craftsmanship",
+    "cover": "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-code.jpg",
+    "isFavorite": true,
+    "author": {"name": "Robert Cecil Martin"},
+    "description": "Even bad code can function. "
+  }
 };
