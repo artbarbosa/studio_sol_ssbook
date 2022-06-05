@@ -41,3 +41,25 @@ const Map<String, dynamic> mapGetAllBooks = {
     ]
   }
 };
+const mapGetFavoriteAuthors = {
+  "favoriteAuthors": [
+    {
+      "name": "Robert Cecil Martin",
+      "booksCount": 4,
+      "picture":
+          "https://sscdn.co/gcs/studiosol/2022/mobile/author/uncle-bob.jpg"
+    },
+    {
+      "name": "J. R. R. Tolkien",
+      "booksCount": 4,
+      "picture":
+          "https://sscdn.co/gcs/studiosol/2022/mobile/author/j-r-r-tolkien.jpg"
+    },
+    {
+      "name": "Afonso Padilha",
+      "booksCount": 1,
+      "picture":
+          "https://sscdn.co/gcs/studiosol/2022/mobile/author/afonso-padilha.jpg"
+    }
+  ]
+};
