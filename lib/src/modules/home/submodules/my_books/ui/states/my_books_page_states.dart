@@ -1,6 +1,6 @@
 import 'package:studio_sol_ssbook/src/core/book/model/book_model.dart';
 
-import '../../../../core/book/model/author_model.dart';
+import '../../../../../../core/book/model/author_model.dart';
 
 abstract class MyBooksPageState {}
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/shared/consts/app_colors_const.dart';
-import '../../../../core/shared/consts/app_text_styles_const.dart';
+import '../../../../../../core/shared/consts/app_colors_const.dart';
+import '../../../../../../core/shared/consts/app_text_styles_const.dart';
 
 class CustomChipCategoryWidget extends StatelessWidget {
   const CustomChipCategoryWidget(

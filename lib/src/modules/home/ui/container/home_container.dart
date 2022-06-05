@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studio_sol_ssbook/src/modules/home/ui/pages/my_books_page.dart';
 
+import '../../submodules/my_books/router/my_books_router.dart';
 import '../components/custom_app_bar_home.dart';
 
 class HomeContainerPage extends StatefulWidget {
@@ -13,18 +13,11 @@ class HomeContainerPage extends StatefulWidget {
 }
 
 class _HomeContainerPageState extends State<HomeContainerPage> {
-  // final homeController = GetIt.I.get<ProductController>();
-  // final categoryController = GetIt.I.get<CategoryController>();
-
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
-      (timeStamp) async {
-        // await categoryController.getAllCategorys();
-        // final firstCategory = categoryController.getFirstCategory;
-        // homeController.fetchProducts(firstCategory);
-      },
+      (timeStamp) async {},
     );
   }
 
@@ -44,7 +37,7 @@ class _HomeContainerPageState extends State<HomeContainerPage> {
           },
           body: TabBarView(
             children: [
-              const MyBooksPage(),
+              const MyBooksRouter(),
               const Center(
                 child: Text('Emprestados'),
               ),

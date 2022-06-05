@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/book/repositories/book_repository.dart';
+import '../../../../../../core/book/repositories/book_repository.dart';
 import '../states/detail_states.dart';
 
 class DetailController extends ValueNotifier<DetailPageState> {

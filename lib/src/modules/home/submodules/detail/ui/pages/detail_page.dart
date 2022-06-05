@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../../core/book/model/book_model.dart';
-import '../../../../core/shared/consts/app_colors_const.dart';
-import '../../../../core/shared/consts/app_text_styles_const.dart';
-import '../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
-import '../../../../core/shared/ui/widgets/custom_bottom_navigatio_bar.dart';
+import '../../../../../../core/book/model/book_model.dart';
+import '../../../../../../core/shared/consts/app_colors_const.dart';
+import '../../../../../../core/shared/consts/app_text_styles_const.dart';
+import '../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
+import '../../../../../../core/shared/ui/widgets/custom_bottom_navigatio_bar.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key, required this.book}) : super(key: key);
@@ -19,12 +19,6 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed('/');
-          },
-        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: const [

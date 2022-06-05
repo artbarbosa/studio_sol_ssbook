@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:studio_sol_ssbook/src/core/shared/consts/app_colors_const.dart';
 import 'package:studio_sol_ssbook/src/core/shared/consts/app_text_styles_const.dart';
 
-import '../../../../core/book/model/author_model.dart';
+import '../../../../../../core/book/model/author_model.dart';
 
 class CustomCardAuthorWidget extends StatelessWidget {
   const CustomCardAuthorWidget({Key? key, required this.author})
       : super(key: key);
 
   final AuthorModel author;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

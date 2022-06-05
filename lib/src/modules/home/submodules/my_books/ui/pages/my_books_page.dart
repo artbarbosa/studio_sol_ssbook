@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
+import '../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../components/library_list_component.dart';
 import '../components/list_favorite_authors_component.dart';
 import '../components/list_favorite_books_component.dart';

@@ -9,8 +9,8 @@ import 'package:studio_sol_ssbook/src/core/shared/inject/inject.dart';
 import 'package:studio_sol_ssbook/src/core/shared/services/remote/graphql_http_client_impl.dart';
 import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_service.dart';
 import 'package:studio_sol_ssbook/src/core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
-import 'package:studio_sol_ssbook/src/modules/detail/ui/controller/detail_controller.dart';
-import 'package:studio_sol_ssbook/src/modules/home/ui/controllers/my_books_controller.dart';
+import 'package:studio_sol_ssbook/src/modules/home/submodules/detail/ui/controller/detail_controller.dart';
+import 'package:studio_sol_ssbook/src/modules/home/submodules/my_books/ui/controllers/my_books_controller.dart';
 
 void main() {
   setUpAll(() async {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../modules/detail/router/detail_router.dart';
 import '../ui/containers/app_container.dart';
 
 class Routers {
@@ -8,7 +7,6 @@ class Routers {
 
   static Map<String, Widget Function(BuildContext, dynamic)> routes = {
     '/': (_, __) => const AppContainer(),
-    '/detail': (_, arguments) => DetailRouter(arguments: arguments),
   };
 
   static Route? generateRoutes(RouteSettings settings) {
