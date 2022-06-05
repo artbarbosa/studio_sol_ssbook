@@ -93,3 +93,7 @@ const Map<String, dynamic> mapGetBookById = {
     "description": "Even bad code can function. "
   }
 };
+
+const Map<String, dynamic> mapGetUserPicture = {
+  "userPicture": "https://sscdn.co/gcs/studiosol/2022/mobile/avatar.jpg"
+};

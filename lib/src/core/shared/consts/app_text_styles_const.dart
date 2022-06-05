@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:studio_sol_ssbook/src/core/shared/consts/app_colors_const.dart';
+
+import 'app_colors_const.dart';
 
 class AppTextStylesConst {
   static final titleHome = GoogleFonts.roboto(

@@ -48,4 +48,9 @@ class ApiConst {
         }
       }
     }""";
+
+  static String queryDocumentUser = r"""
+    query UserPicture {
+      userPicture
+    }""";
 }
