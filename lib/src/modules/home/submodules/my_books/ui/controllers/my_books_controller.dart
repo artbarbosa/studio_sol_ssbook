@@ -9,31 +9,31 @@ import '../../../../../../core/user/repositories/user_repository.dart';
 import '../states/my_books_page_states.dart';
 
 class MyBooksController extends ValueNotifier<MyBooksPageState> {
-  final IBookRepository bookRepository;
-  final IAuthorRepository authorRepository;
-  final IUserRepository userRepository;
+  final IBookRepository _bookRepository;
+  final IAuthorRepository _authorRepository;
+  final IUserRepository _userRepository;
 
   MyBooksController(
-    this.bookRepository,
-    this.authorRepository,
-    this.userRepository,
+    this._bookRepository,
+    this._authorRepository,
+    this._userRepository,
   ) : super(MyBooksLoadingState());
 
   List<BookModel> _listFavoriteBooks = [];
   List<BookModel> _listAllBooks = [];
   List<AuthorModel> _listFavoriteAuthors = [];
-  late UserModel userModel;
+  late UserModel _userModel;
 
-  Future<void> _getUser() async => userModel = await userRepository.getUser();
+  Future<void> _getUser() async => _userModel = await _userRepository.getUser();
 
   Future<void> _getFavoriteBooks() async =>
-      _listFavoriteBooks = await bookRepository.getFavoriteBooks();
+      _listFavoriteBooks = await _bookRepository.getFavoriteBooks();
 
   Future<void> _getAllBooks() async =>
-      _listAllBooks = await bookRepository.getAllBooks();
+      _listAllBooks = await _bookRepository.getAllBooks();
 
   Future<void> _getFavoriteAuthorsBooks() async =>
-      _listFavoriteAuthors = await authorRepository.getFavoriteAuthorsBooks();
+      _listFavoriteAuthors = await _authorRepository.getFavoriteAuthorsBooks();
 
   Future<void> fetchMyBooks() async {
     value = MyBooksLoadingState();
@@ -43,7 +43,7 @@ class MyBooksController extends ValueNotifier<MyBooksPageState> {
       await _getUser();
       await _getAllBooks();
       value = MyBooksLoadedState(
-        user: userModel,
+        user: _userModel,
         listAllBooks: _listAllBooks,
         listFavoriteAuthors: _listFavoriteAuthors,
         listFavoriteBooks: _listFavoriteBooks,

@@ -2,7 +2,13 @@ import 'package:graphql/client.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:studio_sol_ssbook/src/core/book/datasources/remote/author_remote_datasource.dart';
 import 'package:studio_sol_ssbook/src/core/book/datasources/remote/book_remote_datasource.dart';
+import 'package:studio_sol_ssbook/src/core/book/model/author_model.dart';
+import 'package:studio_sol_ssbook/src/core/book/model/book_model.dart';
+import 'package:studio_sol_ssbook/src/core/book/repositories/author_repository.dart';
+import 'package:studio_sol_ssbook/src/core/book/repositories/book_repository.dart';
 import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_service.dart';
+import 'package:studio_sol_ssbook/src/core/user/models/user_model.dart';
+import 'package:studio_sol_ssbook/src/core/user/repositories/user_repository.dart';
 
 class GraphQLClientMock extends Mock implements GraphQLClient {}
 
@@ -11,6 +17,12 @@ class ExceptionMock extends Mock implements Exception {}
 class IHttpClientServiceMock extends Mock implements IHttpClientService {}
 
 class IBookRemoteDataSourceMock extends Mock implements IBookRemoteDataSource {}
+
+class IBookRepositoryMock extends Mock implements IBookRepository {}
+
+class IAuthorRepositoryMock extends Mock implements IAuthorRepository {}
+
+class IUserRepositoryMock extends Mock implements IUserRepository {}
 
 class IAuthorRemoteDataSourceMock extends Mock
     implements IAuthorRemoteDataSource {}
@@ -97,3 +109,19 @@ const Map<String, dynamic> mapGetBookById = {
 const Map<String, dynamic> mapGetUserPicture = {
   "userPicture": "https://sscdn.co/gcs/studiosol/2022/mobile/avatar.jpg"
 };
+
+final authorModelMock = AuthorModel(name: 'test', id: '1');
+
+final bookModelMock = BookModel(
+    cover: 'test',
+    id: '1',
+    author: authorModelMock,
+    description: 'test',
+    isFavorite: true,
+    name: 'name');
+
+final listBookModelMock = [bookModelMock];
+
+final listAuthorModelMock = [authorModelMock];
+
+final userModelMock = UserModel(picture: 'test');
