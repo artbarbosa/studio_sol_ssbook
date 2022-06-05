@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studio_sol_ssbook/src/core/book/model/book_model.dart';
 
+import '../../../../../../core/book/model/book_model.dart';
 import '../../../../../../core/shared/consts/app_text_styles_const.dart';
 import '../widgets/custom_card_book_list_vertical_widget.dart';
 import '../widgets/custom_chip_category.dart';

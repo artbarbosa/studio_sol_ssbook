@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studio_sol_ssbook/src/core/book/model/author_model.dart';
 
+import '../../../../../../core/book/model/author_model.dart';
 import '../../../../../../core/shared/consts/app_text_styles_const.dart';
 import '../widgets/custom_list_card_author_widget.dart';
 

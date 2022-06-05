@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../router/detail_arguments.dart';
 import '../controller/detail_controller.dart';
+import '../pages/detail_error.dart';
 import '../pages/detail_page.dart';
 import '../states/detail_states.dart';
 
@@ -41,7 +42,10 @@ class _DetailContainerState extends State<DetailContainer> {
           );
         }
         if (value is DetailErrorState) {
-          return Container();
+          return DetailErrorPage(
+            errorMenssage: value.errorMessage,
+            refresh: () => controller.getBooksById(widget.arguments.id),
+          );
         }
         return Container();
       },
