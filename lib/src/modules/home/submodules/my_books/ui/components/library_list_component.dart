@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/book/model/book_model.dart';
 import '../../../../../../core/shared/consts/app_text_styles_const.dart';
 import '../widgets/custom_card_book_list_vertical_widget.dart';
-import '../widgets/custom_chip_category.dart';
+import 'list_categorys_component.dart';
 
 class LibraryListComponent extends StatelessWidget {
   const LibraryListComponent({Key? key, required this.listAllBooks})
@@ -30,28 +30,7 @@ class LibraryListComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //List categorias
-              SizedBox(
-                height: 30,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  children: const [
-                    SizedBox(width: 20),
-                    CustomChipCategoryWidget(isSelected: true, label: 'Todos'),
-                    SizedBox(width: 10),
-                    CustomChipCategoryWidget(
-                        isSelected: false, label: 'Romance'),
-                    SizedBox(width: 10),
-                    CustomChipCategoryWidget(
-                        isSelected: false, label: 'Aventura'),
-                    SizedBox(width: 10),
-                    CustomChipCategoryWidget(
-                        isSelected: false, label: 'Comédia'),
-                    SizedBox(width: 20),
-                  ],
-                ),
-              ),
-
+              const ListCategoryComponent(),
               // ListView todos Livros
               Flexible(
                 fit: FlexFit.tight,

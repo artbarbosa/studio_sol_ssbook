@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studio_sol_ssbook/src/core/book/model/book_model.dart';
 
+import '../../../../../../core/book/model/book_model.dart';
 import '../../../../../../core/shared/consts/app_text_styles_const.dart';
 import '../../../detail/router/detail_arguments.dart';
 

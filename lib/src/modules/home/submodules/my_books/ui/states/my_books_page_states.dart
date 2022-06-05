@@ -1,3 +1,5 @@
+import 'package:studio_sol_ssbook/src/core/user/models/user_model.dart';
+
 import '../../../../../../core/book/model/author_model.dart';
 import '../../../../../../core/book/model/book_model.dart';
 
@@ -9,7 +11,9 @@ class MyBooksLoadedState implements MyBooksPageState {
   final List<BookModel> listFavoriteBooks;
   final List<AuthorModel> listFavoriteAuthors;
   final List<BookModel> listAllBooks;
+  final UserModel user;
   MyBooksLoadedState({
+    required this.user,
     required this.listFavoriteBooks,
     required this.listFavoriteAuthors,
     required this.listAllBooks,

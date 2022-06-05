@@ -7,6 +7,8 @@ import '../../book/datasources/remote/author_remote_datasource.dart';
 import '../../book/datasources/remote/book_remote_datasource.dart';
 import '../../book/repositories/author_repository.dart';
 import '../../book/repositories/book_repository.dart';
+import '../../user/datasources/remote/user_datasource.dart';
+import '../../user/repositories/user_repository.dart';
 import '../consts/api_const.dart';
 import '../services/remote/graphql_http_client_impl.dart';
 import '../services/remote/http_client_service.dart';
@@ -32,14 +34,20 @@ class Inject {
     getIt.registerLazySingleton<IAuthorRemoteDataSource>(
         () => AuthorRemoteDataSource(client: getIt()));
 
+    getIt.registerLazySingleton<IUserRemoteDataSource>(
+        () => UserRemoteDataSource(client: getIt()));
+
     getIt.registerLazySingleton<IBookRepository>(
         () => BookRepository(datasource: getIt()));
 
     getIt.registerLazySingleton<IAuthorRepository>(
         () => AuthorRepository(datasource: getIt()));
 
+    getIt.registerLazySingleton<IUserRepository>(
+        () => UserRepository(datasource: getIt()));
+
     getIt.registerLazySingleton<MyBooksController>(
-      () => MyBooksController(getIt(), getIt()),
+      () => MyBooksController(getIt(), getIt(), getIt()),
     );
 
     getIt.registerFactory<DetailController>(

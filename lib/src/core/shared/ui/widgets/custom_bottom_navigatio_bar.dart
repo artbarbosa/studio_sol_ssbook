@@ -16,58 +16,34 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
-  void initState() {
-    super.initState();
-    widget.controller.scrollAddListener();
-  }
-
-  @override
-  void dispose() {
-    widget.controller.scrollRemoveListener();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: widget.controller.isVisible,
-      builder: (_, __) => AnimatedContainer(
-        duration: const Duration(milliseconds: 1000),
-        curve: Curves.fastLinearToSlowEaseIn,
-        height:
-            widget.controller.isVisible.value ? kBottomNavigationBarHeight : 0,
-        child: Wrap(
-          children: [
-            BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: AppColorsConst.onPrimary,
-              selectedItemColor: AppColorsConst.primary,
-              unselectedItemColor: AppColorsConst.secondary,
-              elevation: 100,
-              currentIndex: widget.controller.selectedIndex,
-              onTap: (value) => widget.controller.changePage(value),
-              items: const [
-                BottomNavigationBarItem(
-                  label: 'Início',
-                  icon: Icon(Icons.home),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Adicionar',
-                  icon: Icon(Icons.add_circle),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Buscar',
-                  icon: Icon(Icons.search),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Favoritos',
-                  icon: Icon(Icons.favorite),
-                )
-              ],
-            )
-          ],
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColorsConst.onPrimary,
+      selectedItemColor: AppColorsConst.primary,
+      unselectedItemColor: AppColorsConst.secondary,
+      elevation: 100,
+      currentIndex: widget.controller.selectedIndex,
+      onTap: (value) => widget.controller.changePage(value),
+      items: const [
+        BottomNavigationBarItem(
+          label: 'Início',
+          icon: Icon(Icons.home),
         ),
-      ),
+        BottomNavigationBarItem(
+          label: 'Adicionar',
+          icon: Icon(Icons.add_circle),
+        ),
+        BottomNavigationBarItem(
+          label: 'Buscar',
+          icon: Icon(Icons.search),
+        ),
+        BottomNavigationBarItem(
+          label: 'Favoritos',
+          icon: Icon(Icons.favorite),
+        )
+      ],
     );
   }
 }

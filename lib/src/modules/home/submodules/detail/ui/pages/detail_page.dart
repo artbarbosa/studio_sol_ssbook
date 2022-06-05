@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../../../../../core/book/model/book_model.dart';
 import '../../../../../../core/shared/consts/app_colors_const.dart';
 import '../../../../../../core/shared/consts/app_text_styles_const.dart';
-import '../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
-import '../../../../../../core/shared/ui/widgets/custom_bottom_navigatio_bar.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key, required this.book}) : super(key: key);
@@ -14,8 +11,6 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CustomBottomNavigationBarController controller =
-        GetIt.I.get<CustomBottomNavigationBarController>();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -119,14 +114,6 @@ class DetailPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: ValueListenableBuilder(
-        valueListenable: controller,
-        builder: (context, value, child) {
-          return CustomBottomNavigationBar(
-            controller: controller,
-          );
-        },
       ),
     );
   }
