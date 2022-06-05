@@ -2,7 +2,7 @@ class ApiConst {
   static const apiUrl =
       'https://us-central1-ss-devops.cloudfunctions.net/GraphQL';
 
-  static const queryFavoriteBooks = r"""
+  static const queryDocumentFavoriteBooks = r"""
     query FavoriteBooks {
       favoriteBooks {
         id
@@ -14,7 +14,7 @@ class ApiConst {
     }
   }""";
 
-  static const queryAllBooks = r"""
+  static const queryDocumentAllBooks = r"""
     query AllBooks {
       allBooks{
   	    id
@@ -26,7 +26,7 @@ class ApiConst {
 	    }
     }""";
 
-  static const queryFavoriteAuthors = r"""
+  static const queryDocumentFavoriteAuthors = r"""
     query FavoriteAuthors  {
       favoriteAuthors{
         id
@@ -36,7 +36,7 @@ class ApiConst {
       }
     }""";
 
-  static String queryBookById(String id) => """
+  static String queryDocumentBookById(String id) => """
     query BookById {
       book(id: $id){
         cover

@@ -1,5 +1,3 @@
-import 'package:graphql/client.dart';
-
 import '../../../shared/consts/api_const.dart';
 import '../../../shared/services/remote/http_client_service.dart';
 import '../../failures/book_failures.dart';
@@ -20,7 +18,7 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getAllBooks() async {
     try {
-      final QueryResult result = await client.query(ApiConst.queryAllBooks);
+      final result = await client.query(ApiConst.queryDocumentAllBooks);
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
@@ -34,7 +32,7 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getBookById(String id) async {
     try {
-      final QueryResult result = await client.query(ApiConst.queryBookById(id));
+      final result = await client.query(ApiConst.queryDocumentBookById(id));
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
@@ -48,8 +46,7 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getFavoriteBooks() async {
     try {
-      final QueryResult result =
-          await client.query(ApiConst.queryFavoriteBooks);
+      final result = await client.query(ApiConst.queryDocumentFavoriteBooks);
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {

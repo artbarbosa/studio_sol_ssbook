@@ -1,3 +1,27 @@
+import 'package:graphql/client.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_service.dart';
+
+class GraphQLClientMock extends Mock implements GraphQLClient {}
+
+class ExceptionMock extends Mock implements Exception {}
+
+class IHttpClientServiceMock extends Mock implements IHttpClientService {}
+
+final queryOptionsMock = QueryOptions(
+  document: gql(''),
+);
+
+final Map<String, dynamic> mapDataMock = {};
+
+final QueryResult queryResultMock = QueryResult(
+  source: QueryResultSource.network,
+  data: mapDataMock,
+  options: QueryOptions(
+    document: gql(''),
+  ),
+);
+
 const Map<String, dynamic> mapGetAllBooks = {
   "data": {
     "allBooks": [

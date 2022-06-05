@@ -1,5 +1,3 @@
-import 'package:graphql/client.dart';
-
 import '../../../shared/consts/api_const.dart';
 import '../../../shared/services/remote/http_client_service.dart';
 import '../../failures/author_failures.dart';
@@ -17,8 +15,7 @@ class AuthorRemoteDataSource implements IAuthorRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getfavoriteAuthors() async {
     try {
-      final QueryResult result =
-          await client.query(ApiConst.queryFavoriteAuthors);
+      final result = await client.query(ApiConst.queryDocumentFavoriteAuthors);
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
