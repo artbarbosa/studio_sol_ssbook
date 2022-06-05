@@ -17,8 +17,8 @@ class AuthorRemoteDataSource implements IAuthorRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getfavoriteAuthors() async {
     try {
-      final QueryResult result = await client
-          .query(QueryOptions(document: gql(ApiConst.queryFavoriteAuthors)));
+      final QueryResult result =
+          await client.query(ApiConst.queryFavoriteAuthors);
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {

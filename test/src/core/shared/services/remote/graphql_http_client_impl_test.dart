@@ -1,43 +1,44 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:graphql/client.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:studio_sol_ssbook/src/core/shared/failures/failures.dart';
 import 'package:studio_sol_ssbook/src/core/shared/services/remote/graphql_http_client_impl.dart';
 
 import '../../../../../mocks/mock.dart';
 
+class GraphQLClientMock extends Mock implements GraphQLClient {}
+
+class QueryResultMock extends Mock implements QueryResult {}
+
 void main() {
-  late GraphqlHttpClientServiceImp client;
-  late GraphQLClientMock graphQLClient;
+  late GraphqlHttpClientServiceImp clientService;
+  late GraphQLClientMock graphQLClientMock;
+
+  final document = 'asd';
 
   final queryOptions = QueryOptions(
-    document: gql(''),
+    document: gql(document),
+  );
+  final queryResult = QueryResult(
+    data: mapGetAllBooks,
+    options: queryOptions,
+    source: QueryResultSource.network,
   );
 
   setUpAll(() {
-    graphQLClient = GraphQLClientMock();
-    client = GraphqlHttpClientServiceImp(graphQLClient);
+    graphQLClientMock = GraphQLClientMock();
+    clientService = GraphqlHttpClientServiceImp(graphQLClientMock);
   });
 
   group('GraphqlHttpClientServiceImp - query', () {
     test('Should return QueryResult', () async {
-      when(() => graphQLClient.query(queryOptions))
-          .thenAnswer((_) async => QueryResultMock());
+      when(() => graphQLClientMock.query(queryOptions))
+          .thenAnswer((invocation) async => queryResult);
 
-      final result = await client.query(queryOptions);
-      QueryOptions(
-        document: gql(''),
-      );
+      final result = await clientService.query(document);
 
-      expect(result, isA<QueryResultMock>());
+      expect(result, isA<QueryResult>());
     });
 
-    test('Should throw  GraphqlHttpClientError', () async {
-      when(() => graphQLClient.query(QueryOptionsMock()))
-          .thenThrow(ExceptionMock());
-
-      expect(() async => await client.query(QueryOptionsMock()),
-          throwsA(isA<GraphqlHttpClientError>()));
-    });
+    test('Should throw  GraphqlHttpClientError', () async {});
   });
 }

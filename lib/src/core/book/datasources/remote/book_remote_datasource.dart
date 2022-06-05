@@ -20,8 +20,7 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getAllBooks() async {
     try {
-      final QueryResult result = await client
-          .query(QueryOptions(document: gql(ApiConst.queryAllBooks)));
+      final QueryResult result = await client.query(ApiConst.queryAllBooks);
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
@@ -35,8 +34,7 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getBookById(String id) async {
     try {
-      final QueryResult result = await client
-          .query(QueryOptions(document: gql(ApiConst.queryBookById(id))));
+      final QueryResult result = await client.query(ApiConst.queryBookById(id));
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {
@@ -50,8 +48,8 @@ class BookRemoteDataSource implements IBookRemoteDataSource {
   @override
   Future<Map<String, dynamic>> getFavoriteBooks() async {
     try {
-      final QueryResult result = await client
-          .query(QueryOptions(document: gql(ApiConst.queryFavoriteBooks)));
+      final QueryResult result =
+          await client.query(ApiConst.queryFavoriteBooks);
 
       return result.data as Map<String, dynamic>;
     } catch (error, stackTrace) {

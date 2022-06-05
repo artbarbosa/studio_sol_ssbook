@@ -15,8 +15,8 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context)
-              .pushNamed('/detail', arguments: DetailArguments(id: book.id));
+          Navigator.of(context).pushReplacementNamed('/detail',
+              arguments: DetailArguments(id: book.id));
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

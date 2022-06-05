@@ -9,9 +9,9 @@ class GraphqlHttpClientServiceImp implements IHttpClientService {
   GraphqlHttpClientServiceImp(this._client);
 
   @override
-  Future<QueryResult<TParsed>> query<TParsed>(QueryOptions<TParsed> options) {
+  Future<QueryResult<TParsed>> query<TParsed>(String document) {
     try {
-      return _client.query<TParsed>(options);
+      return _client.query<TParsed>(QueryOptions(document: gql(document)));
     } catch (error, stackTrace) {
       throw GraphqlHttpClientError(
         errorMessage: error.toString(),
