@@ -22,14 +22,16 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: AspectRatio(
                   aspectRatio: 136 / 198,
-                  child: Image.network(
-                    book.cover,
-                    fit: BoxFit.fill,
+                  child: ClipRRect(
+                    child: Image.network(
+                      book.cover,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
               ),

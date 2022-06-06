@@ -32,7 +32,7 @@ class ListFavoriteAuthorsComponent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 5),
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            itemCount: 20,
+            itemCount: listFavoriteAuthors.length,
             itemBuilder: (context, index) {
               return CustomCardAuthorWidget(
                 author: listFavoriteAuthors[index],

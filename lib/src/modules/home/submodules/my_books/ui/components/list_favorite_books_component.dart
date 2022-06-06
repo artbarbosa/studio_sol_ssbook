@@ -27,7 +27,7 @@ class ListFavoriteBooksComponent extends StatelessWidget {
         ),
         // Lista de livros favoritos
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: MediaQuery.of(context).size.height * 0.48,
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             scrollDirection: Axis.horizontal,

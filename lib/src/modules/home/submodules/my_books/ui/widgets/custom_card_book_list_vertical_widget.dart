@@ -14,7 +14,7 @@ class CustomCardBookListVerticalWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
       child: GestureDetector(
         onTap: () {
           Navigator.of(context)
@@ -23,11 +23,16 @@ class CustomCardBookListVerticalWidget extends StatelessWidget {
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
               child: SizedBox(
-                width: 48,
-                height: 70,
-                child: Image.network(book.cover),
+                width: MediaQuery.of(context).size.width * 0.17,
+                child: AspectRatio(
+                  aspectRatio: 48 / 70,
+                  child: Image.network(
+                    book.cover,
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -35,13 +40,16 @@ class CustomCardBookListVerticalWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text.rich(
-                    TextSpan(
-                      text: book.name,
-                      style: AppTextStylesConst.titleBookHome,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.70,
+                    child: Text.rich(
+                      TextSpan(
+                        text: book.name,
+                        style: AppTextStylesConst.titleBookHome,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                     ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
                   ),
                   Text(
                     book.author!.name,

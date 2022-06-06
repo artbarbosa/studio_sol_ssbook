@@ -12,14 +12,22 @@ class CustomChipCategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      backgroundColor:
-          isSelected ? AppColorsConst.primary : AppColorsConst.onPrimary,
-      label: Text(
-        label,
-        style: isSelected
-            ? AppTextStylesConst.categoryBookHomeSelected
-            : AppTextStylesConst.categoryBookHome,
+    return Transform(
+      transform: Matrix4.identity()..scale(1.2),
+      child: Chip(
+        shape: StadiumBorder(
+          side: isSelected
+              ? BorderSide.none
+              : const BorderSide(color: AppColorsConst.divider),
+        ),
+        backgroundColor:
+            isSelected ? AppColorsConst.primary : AppColorsConst.onPrimary,
+        label: Text(
+          label,
+          style: isSelected
+              ? AppTextStylesConst.categoryBookHomeSelected
+              : AppTextStylesConst.categoryBookHome,
+        ),
       ),
     );
   }

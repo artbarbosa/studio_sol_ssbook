@@ -14,7 +14,7 @@ class LibraryListComponent extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 20, top: 30, bottom: 21),
+          padding: const EdgeInsets.only(left: 20, top: 30, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -22,9 +22,7 @@ class LibraryListComponent extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          color: Colors.red,
-          height: 2000,
+        SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,23 +30,18 @@ class LibraryListComponent extends StatelessWidget {
               //List categorias
               const ListCategoryComponent(),
               // ListView todos Livros
-              Flexible(
-                fit: FlexFit.tight,
-                child: Container(
-                  color: Colors.amber,
-                  height: 1900,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: listAllBooks.length,
-                    itemBuilder: (context, index) {
-                      return CustomCardBookListVerticalWidget(
-                        book: listAllBooks[index],
-                      );
-                    },
-                  ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: listAllBooks.length,
+                  itemBuilder: (context, index) {
+                    return CustomCardBookListVerticalWidget(
+                      book: listAllBooks[index],
+                    );
+                  },
                 ),
               )
             ],

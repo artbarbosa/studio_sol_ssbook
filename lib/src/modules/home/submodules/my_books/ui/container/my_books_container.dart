@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import '../../../../../../core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import '../controllers/my_books_controller.dart';
 import '../pages/my_books_error_page.dart';
+import '../pages/my_books_loading.dart';
 import '../pages/my_books_page.dart';
 import '../states/my_books_page_states.dart';
 
@@ -49,7 +50,7 @@ class _MyBooksContainerState extends State<MyBooksContainer> {
           );
         }
 
-        return Container();
+        return const MyBooksLodingPage();
       },
     );
   }
