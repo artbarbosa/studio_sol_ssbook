@@ -25,17 +25,17 @@ class DetailPage extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.bottomCenter,
-              child: Flexible(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 1900,
-                ),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 1730,
               ),
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Image.network(book.cover, fit: BoxFit.cover),
-            ),
+            SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Image.network(
+                  book.cover,
+                  fit: BoxFit.fitWidth,
+                )),
             Align(
               alignment: Alignment.topCenter,
               child: Container(
@@ -67,11 +67,12 @@ class DetailPage extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,15 +83,19 @@ class DetailPage extends StatelessWidget {
                                   softWrap: true,
                                   TextSpan(
                                     text: book.name,
-                                    style: AppTextStylesConst.titleBookHome,
+                                    style: AppTextStylesConst.titleDetail,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                 ),
                               ),
-                              Text(
-                                book.author!.name,
-                                style: AppTextStylesConst.subtitleBookHome,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 8, bottom: 20),
+                                child: Text(
+                                  book.author!.name,
+                                  style: AppTextStylesConst.subtitleDetail,
+                                ),
                               ),
                             ],
                           ),
@@ -99,7 +104,10 @@ class DetailPage extends StatelessWidget {
                                   Icons.favorite,
                                   color: AppColorsConst.primary,
                                 )
-                              : const Icon(Icons.favorite_outline)
+                              : const Icon(
+                                  Icons.favorite_outline,
+                                  size: 32,
+                                )
                         ],
                       ),
                       Text(

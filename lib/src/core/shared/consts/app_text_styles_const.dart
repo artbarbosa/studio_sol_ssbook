@@ -49,4 +49,16 @@ class AppTextStylesConst {
     fontWeight: FontWeight.w400,
     color: AppColorsConst.headingTitle,
   );
+
+  static final titleDetail = GoogleFonts.roboto(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: AppColorsConst.headingTitle,
+  );
+
+  static final subtitleDetail = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColorsConst.subtitle,
+  );
 }
