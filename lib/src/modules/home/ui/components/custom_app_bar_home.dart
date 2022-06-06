@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studio_sol_ssbook/src/core/user/models/user_model.dart';
+
+import '../../../../core/user/models/user_model.dart';
 
 class CustomAppBarHome extends StatelessWidget {
   const CustomAppBarHome({

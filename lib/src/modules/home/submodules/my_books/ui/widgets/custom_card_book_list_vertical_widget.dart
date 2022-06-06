@@ -13,6 +13,8 @@ class CustomCardBookListVerticalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
       child: GestureDetector(
@@ -25,7 +27,7 @@ class CustomCardBookListVerticalWidget extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.17,
+                width: currentSize.width * 0.17,
                 child: AspectRatio(
                   aspectRatio: 48 / 70,
                   child: Image.network(
@@ -41,7 +43,7 @@ class CustomCardBookListVerticalWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.70,
+                    width: currentSize.width * 0.70,
                     child: Text.rich(
                       TextSpan(
                         text: book.name,

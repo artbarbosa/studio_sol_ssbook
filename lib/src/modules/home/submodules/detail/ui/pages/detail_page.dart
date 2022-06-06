@@ -11,6 +11,8 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -26,12 +28,12 @@ class DetailPage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: SizedBox(
-                width: MediaQuery.of(context).size.width,
+                width: currentSize.width,
                 height: 1730,
               ),
             ),
             SizedBox(
-                width: MediaQuery.of(context).size.width,
+                width: currentSize.width,
                 child: Image.network(
                   book.cover,
                   fit: BoxFit.fitWidth,
@@ -39,7 +41,7 @@ class DetailPage extends StatelessWidget {
             Align(
               alignment: Alignment.topCenter,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: currentSize.height * 0.3,
                 padding: const EdgeInsets.all(5.0),
                 alignment: Alignment.bottomCenter,
                 decoration: BoxDecoration(
@@ -56,10 +58,10 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.45,
-              width: MediaQuery.of(context).size.width,
+              top: currentSize.height * 0.45,
+              width: currentSize.width,
               child: Container(
-                width: MediaQuery.of(context).size.width,
+                width: currentSize.width,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -78,7 +80,7 @@ class DetailPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.7,
+                                width: currentSize.width * 0.7,
                                 child: Text.rich(
                                   softWrap: true,
                                   TextSpan(

@@ -11,6 +11,8 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
@@ -24,7 +26,7 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
+                width: currentSize.width * 0.5,
                 child: AspectRatio(
                   aspectRatio: 136 / 198,
                   child: ClipRRect(
@@ -39,7 +41,7 @@ class CustomCardBookListHorizontalComponent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 2, top: 10),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
+                width: currentSize.width * 0.5,
                 child: Text.rich(
                   softWrap: false,
                   TextSpan(

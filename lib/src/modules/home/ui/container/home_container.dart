@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:studio_sol_ssbook/src/modules/home/ui/states/home_states.dart';
 
 import '../../../../core/shared/consts/app_colors_const.dart';
 import '../../submodules/my_books/router/my_books_router.dart';
 import '../components/custom_app_bar_home.dart';
 import '../controller/home_controller.dart';
+import '../states/home_states.dart';
 
 class HomeContainerPage extends StatefulWidget {
   const HomeContainerPage({

@@ -1,4 +1,4 @@
-import 'package:studio_sol_ssbook/src/core/shared/failures/failures.dart';
+import '../../shared/failures/failures.dart';
 
 class AuthorRemoteDataSourceError extends Failure {
   AuthorRemoteDataSourceError({

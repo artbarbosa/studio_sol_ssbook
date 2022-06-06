@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:studio_sol_ssbook/src/core/shared/consts/app_colors_const.dart';
 
+import '../../consts/app_colors_const.dart';
 import '../controllers/custom_bottom_navigation_bar_controller.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {

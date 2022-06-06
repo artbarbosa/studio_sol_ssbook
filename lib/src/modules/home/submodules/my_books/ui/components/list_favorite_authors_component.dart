@@ -12,6 +12,8 @@ class ListFavoriteAuthorsComponent extends StatelessWidget {
   final List<AuthorModel> listFavoriteAuthors;
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Padding(
@@ -27,7 +29,7 @@ class ListFavoriteAuthorsComponent extends StatelessWidget {
         ),
         //Lista de Autores
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: currentSize.height * 0.15,
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             scrollDirection: Axis.horizontal,

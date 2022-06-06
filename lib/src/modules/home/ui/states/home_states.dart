@@ -1,4 +1,4 @@
-import 'package:studio_sol_ssbook/src/core/user/models/user_model.dart';
+import '../../../../core/user/models/user_model.dart';
 
 abstract class HomePageState {}
 

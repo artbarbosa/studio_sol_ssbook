@@ -1,7 +1,6 @@
-import 'package:studio_sol_ssbook/src/core/book/failures/book_failures.dart';
-
 import '../../shared/failures/failures.dart';
 import '../datasources/remote/book_remote_datasource.dart';
+import '../failures/book_failures.dart';
 import '../model/book_model.dart';
 
 abstract class IBookRepository {

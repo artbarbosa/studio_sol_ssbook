@@ -11,6 +11,8 @@ class LibraryListComponent extends StatelessWidget {
   final List<BookModel> listAllBooks;
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Padding(
@@ -23,7 +25,7 @@ class LibraryListComponent extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: currentSize.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -31,7 +33,7 @@ class LibraryListComponent extends StatelessWidget {
               const ListCategoryComponent(),
               // ListView todos Livros
               SizedBox(
-                width: MediaQuery.of(context).size.width,
+                width: currentSize.width,
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,

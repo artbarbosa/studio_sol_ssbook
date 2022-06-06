@@ -12,8 +12,10 @@ class CustomCardAuthorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentSize = MediaQuery.of(context).size;
+
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.9,
+      width: currentSize.width * 0.9,
       child: Card(
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
