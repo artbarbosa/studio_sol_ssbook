@@ -5,7 +5,7 @@ import '../../../../mocks/mock.dart';
 
 void main() {
   group('UserModel = fromMap', () {
-    test('should return a  UserModel', () {
+    test('Should return a  UserModel', () {
       final result = UserModel.fromMap(userMapMock);
 
       expect(result, isA<UserModel>());

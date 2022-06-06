@@ -20,7 +20,10 @@ class LibraryListComponent extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text('Blioteca', style: AppTextStylesConst.titleHome),
+              Text(
+                'Blioteca',
+                style: AppTextStylesConst.titleHome,
+              ),
             ],
           ),
         ),

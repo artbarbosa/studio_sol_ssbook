@@ -5,7 +5,7 @@ import '../../../../mocks/mock.dart';
 
 void main() {
   group('BookModel - fromMap', () {
-    test('should return a  BookModel', () {
+    test('Should return a BookModel', () {
       final result = BookModel.fromMap(bookMapMock);
 
       expect(result, isA<BookModel>());

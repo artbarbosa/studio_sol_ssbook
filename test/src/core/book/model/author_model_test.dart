@@ -5,7 +5,7 @@ import '../../../../mocks/mock.dart';
 
 void main() {
   group('AuthorModel - fromMap', () {
-    test('should return a  AuthorModel', () {
+    test('Sshould return a AuthorModel', () {
       final result = AuthorModel.fromMap(authorMapMock);
 
       expect(result, isA<AuthorModel>());
