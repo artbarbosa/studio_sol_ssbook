@@ -9,16 +9,13 @@ void main() {
   late MyBooksController controller;
   late IBookRepositoryMock bookRepository;
   late IAuthorRepositoryMock authorRepository;
-  late IUserRepositoryMock userRepository;
 
   setUpAll(() {
     bookRepository = IBookRepositoryMock();
     authorRepository = IAuthorRepositoryMock();
-    userRepository = IUserRepositoryMock();
     controller = MyBooksController(
       bookRepository,
       authorRepository,
-      userRepository,
     );
   });
 
@@ -30,8 +27,6 @@ void main() {
           .thenAnswer((_) async => listBookModelMock);
       when(() => authorRepository.getFavoriteAuthorsBooks())
           .thenAnswer((_) async => listAuthorModelMock);
-      when(() => userRepository.getUser())
-          .thenAnswer((_) async => userModelMock);
 
       await controller.fetchMyBooks();
 
@@ -44,22 +39,7 @@ void main() {
       when(() => bookRepository.getFavoriteBooks())
           .thenAnswer((_) async => listBookModelMock);
       when(() => authorRepository.getFavoriteAuthorsBooks())
-          .thenAnswer((_) async => listAuthorModelMock);
-      when(() => userRepository.getUser()).thenThrow(ExceptionMock());
-
-      await controller.fetchMyBooks();
-
-      expect(controller.value, isA<MyBooksErrorState>());
-    });
-    test('Should get and change value MyBooksErrorState', () async {
-      when(() => bookRepository.getAllBooks())
-          .thenAnswer((_) async => listBookModelMock);
-      when(() => bookRepository.getFavoriteBooks())
-          .thenAnswer((_) async => listBookModelMock);
-      when(() => authorRepository.getFavoriteAuthorsBooks())
           .thenThrow(ExceptionMock());
-      when(() => userRepository.getUser())
-          .thenAnswer((_) async => userModelMock);
 
       await controller.fetchMyBooks();
 
@@ -70,8 +50,6 @@ void main() {
       when(() => bookRepository.getFavoriteBooks()).thenThrow(ExceptionMock());
       when(() => authorRepository.getFavoriteAuthorsBooks())
           .thenAnswer((_) async => listAuthorModelMock);
-      when(() => userRepository.getUser())
-          .thenAnswer((_) async => userModelMock);
 
       await controller.fetchMyBooks();
 

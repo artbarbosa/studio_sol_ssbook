@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class AuthorModel {
   final String name;
   final String? id;
@@ -12,37 +10,6 @@ class AuthorModel {
     this.picture,
   });
 
-  AuthorModel copyWith({
-    String? name,
-    String? id,
-    int? bookCount,
-    String? picture,
-  }) {
-    return AuthorModel(
-      name: name ?? this.name,
-      id: id ?? this.id,
-      booksCount: booksCount ?? this.booksCount,
-      picture: picture ?? this.picture,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    final result = <String, dynamic>{};
-
-    result.addAll({'name': name});
-    if (id != null) {
-      result.addAll({'id': id});
-    }
-    if (booksCount != null) {
-      result.addAll({'booksCount': booksCount});
-    }
-    if (picture != null) {
-      result.addAll({'picture': picture});
-    }
-
-    return result;
-  }
-
   factory AuthorModel.fromMap(Map<String, dynamic> map) {
     return AuthorModel(
       name: map['name'] ?? '',
@@ -50,16 +17,6 @@ class AuthorModel {
       booksCount: map['booksCount'],
       picture: map['picture'],
     );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory AuthorModel.fromJson(String source) =>
-      AuthorModel.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'AuthorModel(name: $name, id: $id, booksCount: $booksCount, picture: $picture)';
   }
 
   @override

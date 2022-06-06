@@ -3,6 +3,7 @@ import 'package:graphql/client.dart';
 
 import '../../../modules/home/submodules/detail/ui/controller/detail_controller.dart';
 import '../../../modules/home/submodules/my_books/ui/controllers/my_books_controller.dart';
+import '../../../modules/home/ui/controller/home_controller.dart';
 import '../../book/datasources/remote/author_remote_datasource.dart';
 import '../../book/datasources/remote/book_remote_datasource.dart';
 import '../../book/repositories/author_repository.dart';
@@ -47,11 +48,15 @@ class Inject {
         () => UserRepository(datasource: getIt()));
 
     getIt.registerLazySingleton<MyBooksController>(
-      () => MyBooksController(getIt(), getIt(), getIt()),
+      () => MyBooksController(getIt(), getIt()),
     );
 
     getIt.registerFactory<DetailController>(
       () => DetailController(getIt()),
+    );
+
+    getIt.registerFactory<HomeController>(
+      () => HomeController(getIt()),
     );
 
     getIt.registerLazySingleton<CustomBottomNavigationBarController>(

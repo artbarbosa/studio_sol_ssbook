@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'author_model.dart';
 
 class BookModel {
@@ -18,45 +16,6 @@ class BookModel {
     this.isFavorite,
   });
 
-  BookModel copyWith({
-    String? id,
-    String? name,
-    AuthorModel? author,
-    String? cover,
-    String? description,
-    bool? isFavorite,
-  }) {
-    return BookModel(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      author: author ?? this.author,
-      cover: cover ?? this.cover,
-      description: description ?? this.description,
-      isFavorite: isFavorite ?? this.isFavorite,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    final result = <String, dynamic>{};
-
-    result.addAll({'id': id});
-    if (name != null) {
-      result.addAll({'name': name});
-    }
-    if (author != null) {
-      result.addAll({'author': author!.toMap()});
-    }
-    result.addAll({'cover': cover});
-    if (description != null) {
-      result.addAll({'description': description});
-    }
-    if (isFavorite != null) {
-      result.addAll({'isFavorite': isFavorite});
-    }
-
-    return result;
-  }
-
   factory BookModel.fromMap(Map<String, dynamic> map) {
     return BookModel(
       id: map['id'] ?? '',
@@ -66,16 +25,6 @@ class BookModel {
       description: map['description'],
       isFavorite: map['isFavorite'],
     );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory BookModel.fromJson(String source) =>
-      BookModel.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'BookModel(id: $id, name: $name, author: $author, cover: $cover, description: $description, isFavorite: $isFavorite)';
   }
 
   @override

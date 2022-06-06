@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:studio_sol_ssbook/src/core/user/models/user_model.dart';
 
 class CustomAppBarHome extends StatelessWidget {
-  const CustomAppBarHome({Key? key, required this.innerBoxIsScrolled})
-      : super(key: key);
+  const CustomAppBarHome({
+    Key? key,
+    required this.innerBoxIsScrolled,
+    required this.user,
+  }) : super(key: key);
 
   final bool innerBoxIsScrolled;
+  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +21,14 @@ class CustomAppBarHome extends StatelessWidget {
         ),
       ),
       title: Image.asset('assets/images/logo_ssbook.png'),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 20),
+          child: CircleAvatar(
+            backgroundImage: NetworkImage(user.picture),
+          ),
+        )
+      ],
       pinned: true,
       floating: true,
       forceElevated: innerBoxIsScrolled,

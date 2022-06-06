@@ -11,6 +11,7 @@ import 'package:studio_sol_ssbook/src/core/shared/services/remote/http_client_se
 import 'package:studio_sol_ssbook/src/core/shared/ui/controllers/custom_bottom_navigation_bar_controller.dart';
 import 'package:studio_sol_ssbook/src/modules/home/submodules/detail/ui/controller/detail_controller.dart';
 import 'package:studio_sol_ssbook/src/modules/home/submodules/my_books/ui/controllers/my_books_controller.dart';
+import 'package:studio_sol_ssbook/src/modules/home/ui/controller/home_controller.dart';
 
 void main() {
   setUpAll(() async {
@@ -62,6 +63,12 @@ void main() {
     final result = GetIt.I<DetailController>();
 
     expect(result, isA<DetailController>());
+  });
+
+  test('Should return Instance HomeController', () async {
+    final result = GetIt.I<HomeController>();
+
+    expect(result, isA<HomeController>());
   });
 
   test('Should return Instance CustomBottomNavigationBarController', () async {
