@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../../consts/app_colors_const.dart';
-import '../controllers/custom_bottom_navigation_bar_controller.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({Key? key, required this.controller})
-      : super(key: key);
+  const CustomBottomNavigationBar({
+    Key? key,
+    this.onTap,
+    required this.currentIndex,
+  }) : super(key: key);
 
-  final CustomBottomNavigationBarController controller;
-
+  final int currentIndex;
+  final Function(int)? onTap;
   @override
   State<CustomBottomNavigationBar> createState() =>
       _CustomBottomNavigationBarState();
@@ -23,9 +25,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       backgroundColor: AppColorsConst.onPrimary,
       selectedItemColor: AppColorsConst.primary,
       unselectedItemColor: AppColorsConst.secondary,
-      elevation: 100,
-      currentIndex: widget.controller.selectedIndex,
-      onTap: (value) => widget.controller.changePage(value),
+      currentIndex: widget.currentIndex,
+      onTap: widget.onTap,
       items: const [
         BottomNavigationBarItem(
           label: 'Início',

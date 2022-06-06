@@ -29,9 +29,7 @@ class LibraryListComponent extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //List categorias
               const ListCategoryComponent(),
-              // ListView todos Livros
               SizedBox(
                 width: currentSize.width,
                 child: ListView.builder(

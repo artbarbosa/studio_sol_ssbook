@@ -22,12 +22,17 @@ class ListFavoriteBooksComponent extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Meus Favoritos', style: AppTextStylesConst.titleHome),
-              Text('ver todos', style: AppTextStylesConst.secondaryHome),
+              Text(
+                'Meus Favoritos',
+                style: AppTextStylesConst.titleHome,
+              ),
+              Text(
+                'ver todos',
+                style: AppTextStylesConst.secondaryHome,
+              ),
             ],
           ),
         ),
-        // Lista de livros favoritos
         SizedBox(
           height: currentSize.height * 0.48,
           child: ListView.builder(

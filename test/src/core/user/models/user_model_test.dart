@@ -1,0 +1,16 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:studio_sol_ssbook/src/core/user/models/user_model.dart';
+
+import '../../../../mocks/mock.dart';
+
+void main() {
+  group('UserModel = fromMap', () {
+    test('should return a  UserModel', () {
+      final result = UserModel.fromMap(userMapMock);
+
+      expect(result, isA<UserModel>());
+      expect(result.picture,
+          'https://sscdn.co/gcs/studiosol/2022/mobile/avatar.jpg');
+    });
+  });
+}

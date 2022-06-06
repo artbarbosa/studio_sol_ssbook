@@ -6,7 +6,7 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      picture: map['picture'] ?? '',
+      picture: map['userPicture'] ?? '',
     );
   }
 

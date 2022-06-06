@@ -9,9 +9,10 @@ class MyBooksLodingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-          child: CircularProgressIndicator(
-        color: AppColorsConst.primary,
-      )),
+        child: CircularProgressIndicator(
+          color: AppColorsConst.primary,
+        ),
+      ),
     );
   }
 }

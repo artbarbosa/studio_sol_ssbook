@@ -22,12 +22,17 @@ class ListFavoriteAuthorsComponent extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Autores Favoritos', style: AppTextStylesConst.titleHome),
-              Text('ver todos', style: AppTextStylesConst.secondaryHome),
+              Text(
+                'Autores Favoritos',
+                style: AppTextStylesConst.titleHome,
+              ),
+              Text(
+                'ver todos',
+                style: AppTextStylesConst.secondaryHome,
+              ),
             ],
           ),
         ),
-        //Lista de Autores
         SizedBox(
           height: currentSize.height * 0.15,
           child: ListView.builder(

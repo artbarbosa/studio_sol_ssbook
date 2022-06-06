@@ -9,6 +9,7 @@ class MyBooksLoadedState implements MyBooksPageState {
   final List<BookModel> listFavoriteBooks;
   final List<AuthorModel> listFavoriteAuthors;
   final List<BookModel> listAllBooks;
+
   MyBooksLoadedState({
     required this.listFavoriteBooks,
     required this.listFavoriteAuthors,

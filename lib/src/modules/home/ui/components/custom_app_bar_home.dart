@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/shared/consts/app_colors_const.dart';
+import '../../../../core/shared/consts/app_text_styles_const.dart';
 import '../../../../core/user/models/user_model.dart';
 
 class CustomAppBarHome extends StatelessWidget {
@@ -15,7 +17,7 @@ class CustomAppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: const Color(0xFFFFFFFF),
+      backgroundColor: AppColorsConst.onPrimary,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(32),
@@ -34,29 +36,31 @@ class CustomAppBarHome extends StatelessWidget {
       floating: true,
       forceElevated: innerBoxIsScrolled,
       bottom: TabBar(
-        indicatorColor: const Color(0xFFA076F2),
+        indicatorColor: AppColorsConst.primary,
         indicator: const UnderlineTabIndicator(
-          borderSide: BorderSide(width: 5.0, color: Color(0xFFA076F2)),
+          borderSide: BorderSide(
+            width: 5.0,
+            color: AppColorsConst.primary,
+          ),
           insets: EdgeInsets.symmetric(
             horizontal: 16.0,
           ),
         ),
         tabs: [
-          const Tab(
-              child: Text('Meus Livros',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF555555),
-                  ))),
-          const Tab(
-              child: Text('Emprestados',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF555555),
-                  ))),
+          Tab(
+            child: Text(
+              'Meus Livros',
+              style: AppTextStylesConst.headingAppBar,
+            ),
+          ),
+          Tab(
+            child: Text(
+              'Emprestados',
+              style: AppTextStylesConst.headingAppBar,
+            ),
+          ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.green[300],
               borderRadius: BorderRadius.circular(25.0),
             ),
           ),

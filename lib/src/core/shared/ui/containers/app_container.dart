@@ -20,13 +20,14 @@ class _AppContainerState extends State<AppContainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomPageView(
-        controller: controller,
+        pageController: controller.pageController,
       ),
-      bottomNavigationBar: ValueListenableBuilder(
+      bottomNavigationBar: ValueListenableBuilder<int>(
         valueListenable: controller,
-        builder: (context, value, child) {
+        builder: (context, value, _) {
           return CustomBottomNavigationBar(
-            controller: controller,
+            currentIndex: value,
+            onTap: (value) => controller.changePage(value),
           );
         },
       ),

@@ -125,3 +125,17 @@ final listBookModelMock = [bookModelMock];
 final listAuthorModelMock = [authorModelMock];
 
 final userModelMock = UserModel(picture: 'test');
+
+const Map<String, dynamic> userMapMock = {
+  "userPicture": "https://sscdn.co/gcs/studiosol/2022/mobile/avatar.jpg"
+};
+const Map<String, dynamic> bookMapMock = {
+  "name": "Clean Code: A Handbook of Agile Software Craftsmanship",
+  "cover": "https://sscdn.co/gcs/studiosol/2022/mobile/book/clean-code.jpg",
+  "author": {"name": "Robert Cecil Martin"}
+};
+const Map<String, dynamic> authorMapMock = {
+  "name": "Robert Cecil Martin",
+  "booksCount": 4,
+  "picture": "https://sscdn.co/gcs/studiosol/2022/mobile/author/uncle-bob.jpg"
+};

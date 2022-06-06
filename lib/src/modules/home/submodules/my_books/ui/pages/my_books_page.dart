@@ -27,10 +27,8 @@ class _MyBooksPageState extends State<MyBooksPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // Meus Favoritos
           ListFavoriteBooksComponent(
               listFavoriteBooks: widget.listFavoriteBooks),
-          //Container Branco
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
@@ -42,10 +40,11 @@ class _MyBooksPageState extends State<MyBooksPage> {
             child: Column(
               children: [
                 ListFavoriteAuthorsComponent(
-                    listFavoriteAuthors: widget.listFavoriteAuthors),
-
-                // Biblioteca
-                LibraryListComponent(listAllBooks: widget.listAllBooks),
+                  listFavoriteAuthors: widget.listFavoriteAuthors,
+                ),
+                LibraryListComponent(
+                  listAllBooks: widget.listAllBooks,
+                ),
               ],
             ),
           ),

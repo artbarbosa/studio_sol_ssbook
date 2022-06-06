@@ -63,7 +63,7 @@ class DetailPage extends StatelessWidget {
               child: Container(
                 width: currentSize.width,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: AppColorsConst.onPrimary,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(32),
                   ),

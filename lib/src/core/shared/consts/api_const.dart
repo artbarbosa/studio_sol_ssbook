@@ -36,6 +36,11 @@ class ApiConst {
       }
     }""";
 
+  static String queryDocumentUser = r"""
+    query UserPicture {
+      userPicture
+    }""";
+
   static String queryDocumentBookById(String id) => """
     query BookById {
       book(id: $id){
@@ -47,10 +52,5 @@ class ApiConst {
           name
         }
       }
-    }""";
-
-  static String queryDocumentUser = r"""
-    query UserPicture {
-      userPicture
     }""";
 }
