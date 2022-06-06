@@ -34,7 +34,7 @@ class ListFavoriteBooksComponent extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: currentSize.height * 0.48,
+          height: currentSize.height * 0.50,
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             scrollDirection: Axis.horizontal,
