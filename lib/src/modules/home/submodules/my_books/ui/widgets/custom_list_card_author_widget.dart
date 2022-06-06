@@ -36,10 +36,15 @@ class CustomCardAuthorWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(author.name, style: AppTextStylesConst.titleBookHome),
-                  Text('${author.booksCount.toString()} livros',
-                      style: AppTextStylesConst.subtitleBookHome),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Text(
+                        '${author.booksCount.toString()} ${author.booksCount == 1 ? 'livro' : 'livros'}',
+                        style: AppTextStylesConst.subtitleBookHome),
+                  )
                 ],
               ),
             ),
